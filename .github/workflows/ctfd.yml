@@ -1,0 +1,22 @@
+name: Sync CTFd
+
+on: [workflow_call]  # allow this workflow to be called from other workflows
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Install ctfcli
+        run: |
+          python -m pip install --upgrade pip
+          pip install git+https://github.com/apogiatzis/ctfcli
+      
+      - name: Challenge discovery
+        id: challenge-discovery
+        uses: ./.github/actions/discover-challenges
+        with:
+          base-dir: '.'
+      
