@@ -21,9 +21,11 @@ flags:
 
 tags:
   - crypto
+  - hard/medium
 
 files:
   - "public/leonhards-position-model.tar.gz"
 
 state: hidden
 version: "0.1"
+
