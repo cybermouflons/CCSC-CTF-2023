@@ -1,0 +1,30 @@
+name: "AI's Pizza"
+author: "feltf"
+category: crypto
+
+description: |
+  Our state-of-the-art Recipes Generative Model has produced an exceptional pizza dough recipe, aptly named the "(Un)predictable Dough".
+
+  Order one for an (un)predictable taste journey.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{AES_in_CBC_mode_is_n0t_IND_CPA_s3cure_wh3n_IV_1s_pr3d1ct4ble}
+
+tags:
+  - crypto
+  - medium
+
+files:
+  - "public/server.py"
+
+state: visible
+version: "0.1"

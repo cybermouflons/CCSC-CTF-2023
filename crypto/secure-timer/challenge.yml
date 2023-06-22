@@ -1,0 +1,37 @@
+name: "Secure Timer"
+author: "feltf"
+category: crypto
+
+description: |
+  I asked ChatCheapLeakD to implement a deterministic ECDSA scheme following
+  the specifications outlined in RFC 6979. As always, its implementation surpassed
+  my expectations.
+
+  After examining the intricate generated masterpiece, I made the decision to deploy
+  an online timer that utilizes the generated ECDSA implementation to sign its responses.
+
+  Feeling a bit too confident, I went ahead and added a flag command, which returns
+  the flag if provided with a valid signature. I'm willing to bet you won't be able to
+  obtain the flag... or perhaps you can?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{Make_sur3_that_you_never_ev3r_deviate_from_st4ndards}
+
+tags:
+  - crypto
+  - hard
+
+files:
+  - "public/server.py"
+
+state: visible
+version: "0.1"

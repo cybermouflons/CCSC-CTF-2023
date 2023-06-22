@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ccsc2023/secure-timer:latest
+    restart: always
+    ports:
+      - 50002:50002
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels: 
+        ctf.challenge.name: secure-timer

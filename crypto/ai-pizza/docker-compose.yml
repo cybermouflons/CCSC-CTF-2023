@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ccsc2023/ai-pizza:latest
+    restart: always
+    ports:
+      - 50001:50001
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels: 
+        ctf.challenge.name: ai-pizza
