@@ -41,7 +41,7 @@ jobs:
       - name: Create folder challenge hashes
         id: challenge-hashes
         run: |
-          if [ -f .cache/hashes ]; then
+          if [ -d .cache ] && [ -f .cache/hashes ]; then
             rm -f .cache/hashes
           fi
           mkdir -p .cache
