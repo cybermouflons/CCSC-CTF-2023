@@ -45,6 +45,7 @@ jobs:
             rm -f .cache/hashes
           fi
           mkdir -p .cache
+          touch .cache/hashes
           IFS=' ' read -r -a challenge_dirs <<< "${{ steps.docker-chall-discovery.outputs.dirs }}"
           for dir in "${challenge_dirs[@]}"; do
             echo "$(find $dir -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | cut -d " " -f 1) $dir" >> .cache/hashes
