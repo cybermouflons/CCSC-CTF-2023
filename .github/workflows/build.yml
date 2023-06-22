@@ -41,7 +41,9 @@ jobs:
       - name: Create folder challenge hashes
         id: challenge-hashes
         run: |
-          rm -f .cache/hashes
+          if [ -f .cache/hashes ]; then
+            rm -f .cache/hashes
+          fi
           mkdir -p .cache
           IFS=' ' read -r -a challenge_dirs <<< "${{ steps.docker-chall-discovery.outputs.dirs }}"
           for dir in "${challenge_dirs[@]}"; do
