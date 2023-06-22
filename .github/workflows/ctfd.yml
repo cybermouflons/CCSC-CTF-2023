@@ -26,7 +26,7 @@ jobs:
           base-dir: '.'
       
       - name: Challenge Sync
-        id: challenge sync
+        id: challenge-sync
         run: |
           IFS=' ' read -r -a chall_dirs <<< "${{ steps.challenge-discovery.outputs.dirs }}"
             for dir in "${chall_dirs[@]}"; do
