@@ -16,3 +16,4 @@ jobs:
   ctfd:
     uses: ./.github/workflows/ctfd.yml
     needs: build
+    secrets: inherit
