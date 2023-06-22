@@ -9,6 +9,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       
+      - name: Create .ctf/config file
+        run: |
+          mkdir -p .ctf/config
+          echo "${{ secrets.CTF_CLI_CONFIG }}" > .ctf/config
+      
       - name: Install ctfcli
         run: |
           python -m pip install --upgrade pip
@@ -19,4 +24,14 @@ jobs:
         uses: ./.github/actions/discover-challenges
         with:
           base-dir: '.'
+      
+      - name: Challenge Sync
+        id: challenge sync
+        run: |
+          IFS=' ' read -r -a chall_dirs <<< "${{ steps.challenge-discovery.outputs.dirs }}"
+            for dir in "${chall_dirs[@]}"; do
+                ctf challenge install ${dir}
+                ctf challenge sync ${dir}
+            done
+          echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
       
