@@ -34,4 +34,3 @@ jobs:
                 ctf challenge sync ${dir}
             done
           echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
-      
