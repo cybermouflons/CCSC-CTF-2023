@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   challenge:
-    image: ccsc2023/secure-timer:latest
+    image: ghcr.io/cybermouflons/ccsc2023/secure-timer:latest
     restart: always
     ports:
       - 50002:50002

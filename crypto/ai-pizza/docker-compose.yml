@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   challenge:
-    image: ccsc2023/ai-pizza:latest
+    image: ghcr.io/cybermouflons/ccsc2023/ai-pizza:latest
     restart: always
     ports:
       - 50001:50001
