@@ -11,7 +11,7 @@ jobs:
       
       - name: Create .ctf/config file
         run: |
-          mkdir -p .ctf/config
+          mkdir -p .ctf
           echo "${{ secrets.CTF_CLI_CONFIG }}" > .ctf/config
       
       - name: Install ctfcli
