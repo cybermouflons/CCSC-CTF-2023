@@ -126,6 +126,10 @@ class Server:
             self.send_message({"res": "Succesfully logged out."})
 
     def select_toppings_handler(self, msg):
+        if self.current_user is None:
+            self.send_message({"res": "Please login first."})
+            return
+
         self.current_toppings = ["cheese"]
         toppings = msg["toppings_list"]
         for topping in toppings:
@@ -158,6 +162,10 @@ class Server:
         )
 
     def order_pizza_handler(self):
+        if self.current_user is None:
+            self.send_message({"res": "Please login first."})
+            return
+
         if "pineapple" in self.current_toppings:
             self.send_message(
                 {
