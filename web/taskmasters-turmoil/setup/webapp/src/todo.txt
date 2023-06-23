@@ -1,0 +1,4 @@
+Admin todo list:
+ - Clean up code: NOT STARTED
+ - Take over the world: IN PROGRESS
+ - Log invalid login attempts: COMPLETE 

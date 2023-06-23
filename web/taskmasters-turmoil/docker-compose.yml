@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+  webapp:
+    image: ghcr.io/cybermouflons/ccsc2023/taskmasters-turnmoil:latest
+    build: ./setup/webapp/
+    depends_on:
+      - db
+    ports:
+      - 3000:80
+  db:
+    image: mysql:5.7
+    hostname: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpassword
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass

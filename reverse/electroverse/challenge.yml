@@ -1,0 +1,32 @@
+name: "Electroverse: Decrypting the Digital Pulse"
+author: "s1kk1s"
+category: medium
+
+description: |
+ Lucas, has recently discovered that one of his trusted notetaking applications 
+ has been infiltrated by the AI. Concerned about the extent of the breach, 
+ he seeks assistance in identifying what specific information has been stolen. 
+ 
+ Can you help Lucas uncover the extent of the data breach and identify the valuable information 
+ compromised by the AI?
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  - CCSC2023{Hiden_Signls_D3tct3d}
+
+tags:
+  - reverse
+  - web
+  - medium
+
+files:
+  - "public/obsidian.asar"
+
+state: hidden
+version: "0.1"
