@@ -1,9 +1,11 @@
-name: "Web Challenge 1"
+name: "Taskmaster's Turmoil"
 author: "sAINT_barber"
 category: web
 
 description: |
-  Read contents of `/flag.txt`
+  Your mission is to exploit vulnerabilities in this web application.
+  
+  You are to override existing security measures and halt the AI's entire operation by reading contents of `/flag.txt`. 
 
 value: 500
 type: dynamic_docker
