@@ -1,3 +1,4 @@
 .env
 .ctf
 .DS_Store
+**/__pycache__/**
