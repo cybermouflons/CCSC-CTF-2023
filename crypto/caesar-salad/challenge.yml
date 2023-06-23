@@ -1,0 +1,29 @@
+name: "Caesar Salad"
+author: "feltf"
+category: crypto
+
+description: |
+  I placed an order for a caesar salad through an AI bot-powered online store,
+  believing it to be the secret to shedding pounds according to my nutritionist.
+  However, much to my surprise, instead of receiving the anticipated salad, I
+  was presented with a message that proved completely unintelligible to me.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  - CCSC{y0u_can_always_bruteforc3_a_small_k3y_sp4ce}
+
+tags:
+  - crypto
+  - beginner
+
+files:
+  - "public/message.py"
+
+state: hidden
+version: "0.1"
