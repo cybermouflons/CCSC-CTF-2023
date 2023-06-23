@@ -1,0 +1,27 @@
+name: "Web Challenge 1"
+author: "sAINT_barber"
+category: web
+
+description: |
+  Read contents of `/flag.txt`
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{aR71f1cIaL_1nj3C7t1on_WiTh_P015oN}
+
+tags:
+  - web
+
+files:
+  - public/portal-gun.tar.gz
+
+state: visible
+version: "0.1"
