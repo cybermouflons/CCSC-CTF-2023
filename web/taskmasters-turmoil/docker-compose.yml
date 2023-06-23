@@ -10,6 +10,7 @@ services:
       - 3000:80
   db:
     image: mysql:5.7
+    hostname: db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysqlpassword
