@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     needs: lint
 
-  # ctfd:
-  #   uses: ./.github/workflows/ctfd.yml
-  #   needs: build
-  #   secrets: inherit
+  ctfd:
+    uses: ./.github/workflows/ctfd.yml
+    needs: build
+    secrets: inherit
