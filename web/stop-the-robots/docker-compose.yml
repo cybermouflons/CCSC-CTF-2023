@@ -6,3 +6,4 @@ services:
     build: ./setup/
     ports:
       - 3000:80
+
