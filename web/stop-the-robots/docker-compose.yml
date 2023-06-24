@@ -4,7 +4,5 @@ services:
   webapp:
     image: ghcr.io/cybermouflons/ccsc2023/stop-the-robots:latest
     build: ./setup/
-    depends_on:
-      - db
     ports:
       - 3000:80
