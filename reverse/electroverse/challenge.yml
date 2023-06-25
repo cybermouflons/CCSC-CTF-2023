@@ -28,5 +28,5 @@ tags:
 files:
   - "public/obsidian.asar"
 
-state: hidden
+state: visible
 version: "0.1"
