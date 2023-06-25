@@ -1,5 +1,11 @@
+# Use the base image with PHP 7.4
 FROM php:7.4-apache
 
-COPY app /var/www/html/
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
 
-RUN chown -R www-data:www-data /var/www/html/
+# Copy the application files to the container
+COPY ./app /var/www/html
+
+# Set the working directory
+WORKDIR /var/www/html
