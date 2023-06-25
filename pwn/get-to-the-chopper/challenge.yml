@@ -23,7 +23,7 @@ tags:
   - cpp
 
 files:
-  - "public/"
+  - "public/chopper.tar.gz"
 
 state: visible
 version: "0.1"
