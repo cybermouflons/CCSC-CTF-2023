@@ -5,4 +5,4 @@ services:
     image: ghcr.io/cybermouflons/ccsc2023/cookie-conquest:latest # Add in prod
     build: ./setup/
     ports:
-      - 3001:1337
+      - 3001:80
