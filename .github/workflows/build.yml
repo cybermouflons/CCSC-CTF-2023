@@ -94,3 +94,10 @@ jobs:
           for challenge_dir in "${challenge_dirs[@]}"; do
             docker compose -f $challenge_dir/docker-compose.yml push
           done
+      
+      - name: Save folder challenge hashes
+        id: challenge-hashes-save
+        uses: actions/cache/save@v3
+        with:
+          path: .cache/last_hashes
+          key: last-hashes
