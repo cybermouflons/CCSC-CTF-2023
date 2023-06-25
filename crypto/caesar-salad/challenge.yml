@@ -25,5 +25,5 @@ tags:
 files:
   - "public/message.py"
 
-state: hidden
+state: visible
 version: "0.1"
