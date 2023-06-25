@@ -1,0 +1,39 @@
+name: "rsAI"
+author: "feltf"
+category: crypto
+
+description: |
+  My professor at school taught me that RSA has a public and a private key.
+  
+  Entrusted with the power to make a choice, I took the liberty of granting you
+  the privilege to determine the public exponent `e`.
+
+  In an unforeseen turn of events, my AI succumbed to a state of frenzy, leading
+  it to embark on a peculiar path of action. It determined, with uncontainable
+  fervor, to disseminate the flag in an encrypted form.
+
+  However, our solace lies in the knowledge that our security remains intact, as
+  the private key continues to stand as an indomitable fortress, rendering its
+  computational derivation a formidable endeavor.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{ext3nded_Eucl1dean_4lgorithm_magic_!Us3_rsa_w1th_pr0per_padding}
+
+tags:
+  - crypto
+  - easy
+
+files:
+  - "public/server.py"
+
+state: hidden
+version: "0.1"
