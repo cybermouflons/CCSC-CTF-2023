@@ -1,11 +1,8 @@
-# Use the base image with PHP 7.4
-FROM php:7.4-apache
+FROM php:8.1-apache
 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && \
+    sed -i 's/^log_errors = On$/log_errors = Off/' "$PHP_INI_DIR/php.ini"
 
-# Copy the application files to the container
-COPY ./app /var/www/html
+COPY app /var/www/html/
 
-# Set the working directory
-WORKDIR /var/www/html
+CMD ["/bin/sh", "-c", "php -S 0.0.0.0:1337 2> /dev/null"]
