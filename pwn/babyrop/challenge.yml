@@ -3,7 +3,7 @@ author: "s3nn"
 category: pwn
 
 description: |
-  The evil AI hasn't been fully trained yet, this is your chance to get a foothold in the core network. It won't be as easy as Aleph One in 1996, but you can do it!
+  Defences have been hardened, but the AI has made one fatal mistake. Now's your chance to destroy all its defences!
 
 value: 500
 type: dynamic_docker
