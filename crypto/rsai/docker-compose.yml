@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2023/rsai:latest
+    restart: always
+    ports:
+      - 50003:50003
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels: 
+        ctf.challenge.name: rsai
