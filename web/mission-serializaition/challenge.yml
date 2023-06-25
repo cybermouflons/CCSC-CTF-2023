@@ -1,0 +1,25 @@
+name: "Mission SerializAItion"
+author: "s3nn + Koupepi"
+category: web
+
+description: |
+  Mary needs to undertake a solo mission to help the Pulse weaken the AI's defences. 
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{s3rver_s1de_Bugs_are_The_Co0lest_web_challs}
+
+tags:
+  - web
+  - easy
+
+state: visible
+version: "0.1"

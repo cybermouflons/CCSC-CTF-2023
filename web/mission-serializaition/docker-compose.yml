@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2023/mission-serialize:latest
+    restart: always
+    ports:
+      - 8000:8000
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels: 
+        ctf.challenge.name: mission-serialize
