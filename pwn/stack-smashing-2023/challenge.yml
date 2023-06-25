@@ -3,7 +3,7 @@ author: "s3nn"
 category: pwn
 
 description: |
-  The evil AI hasn't been fully trained yet, this is your chance to get a foothold in the core network. It won't be as easy as Aleph One in 1996, but you can do it!
+  The evil AI hasn't been fully trained yet, this is the Pulse's chance to get a foothold in the core network. It won't be as easy as Aleph One in 1996, but you can do it!
 
 value: 200
 type: dynamic_docker
@@ -21,6 +21,7 @@ tags:
   - pwn
   - bof
   - fmtstr
+  - beginner
 
 files:
   - "public/stack-smashing-2023.tar.gz"
