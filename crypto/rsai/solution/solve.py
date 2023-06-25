@@ -65,6 +65,16 @@ def gcdExtended(a: int, b: int) -> Tuple[int, int, int]:
     return gcd, x, y
 
 
+def edge_case(e: int, c: int, N: int):
+    p = GCD(c, N)
+    q = N // p
+    phiN = (p - 1) * (q - 1)
+    d = pow(e, -1, N)
+    m = pow(c, d, N)
+    flag = long_to_bytes(m)
+    print(flag)
+
+
 def attack(tn: Telnet):
     e1 = getPrime(17)
     e2 = getPrime(17)
@@ -76,6 +86,16 @@ def attack(tn: Telnet):
 
     e2, N = select_e(tn, e2)
     c2 = encrypted_flag(tn)
+
+    # we check the edge cases because we need to compute the mod inverse of c1 or c2 mod N
+    # but we are lucky in the edge cases because factorization is trivial
+    if GCD(c1, N) != 1:
+        edge_case(e1, c1, N)
+        return
+
+    if GCD(c2, N) != 1:
+        edge_case(e2, c2, N)
+        return
 
     gcd, x, y = gcdExtended(e1, e2)
     print(f"{N=}")
