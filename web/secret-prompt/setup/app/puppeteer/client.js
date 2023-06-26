@@ -26,6 +26,15 @@ class Puppeteer {
       });
       await page.goto(domainURL);
       await page.evaluate((flag) => localStorage.setItem("gift", flag), flag);
+      await new Promise((r) => setTimeout(r, 350));
+
+      const gift = await page.evaluate(() => {
+        return localStorage.getItem("gift");
+      });
+      if (gift !== flag) {
+        throw new Error("gift wasn't set properly");
+      }
+
       await page.close();
       // done setting gift in localStorage
 
