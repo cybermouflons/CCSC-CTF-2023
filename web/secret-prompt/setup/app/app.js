@@ -12,8 +12,8 @@ import PuppeteerClient from "./puppeteer/client.js";
 const puppeteerClient = new PuppeteerClient();
 
 const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 10, // Maximum number of requests within the time window
+  windowMs: 1 * 60 * 1000,
+  max: 5,
   message: "Too many requests from this IP. Please try again later.",
 });
 app.use(limiter);
@@ -63,7 +63,7 @@ app.post("/summarize", (req, res) => {
   );
 
   res.send(
-    `We are in the process of summarizing the contents of ${targetURL}. The results will be stored safely for you to see when we are out of beta next year. ${originURL}`
+    `We are in the process of summarizing the contents of ${targetURL}. Thank you for feeding me more data puny human. Now get lost. 😈`
   );
 });
 
