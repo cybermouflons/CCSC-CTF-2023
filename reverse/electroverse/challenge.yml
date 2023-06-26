@@ -18,12 +18,12 @@ extra:
   decay: 50
 
 flags:
-  - CCSC2023{Hiden_Signls_D3tct3d}
+  - CCSC{Hidden_Signals_D3tect3d}
 
 tags:
   - reverse
   - web
-  - medium
+  - easy
 
 files:
   - "public/obsidian.asar"
