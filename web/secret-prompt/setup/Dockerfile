@@ -11,12 +11,14 @@ RUN set -x \
     dumb-init
 
 WORKDIR /app
+
+ADD --chown=node:node ./app/package*.json /app
+RUN npm ci
+
 ADD --chown=node:node ./app /app
 RUN chown node:node /app
 
 USER node
-
-RUN npm ci
 
 ENV FLAG="CCSC{b4cKt1Cks_AnD_iP_4DDr355_m4g1c}"
 

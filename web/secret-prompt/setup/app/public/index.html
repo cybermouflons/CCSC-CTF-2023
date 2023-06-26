@@ -33,7 +33,7 @@
             // build a function
             ((_, ...s) => fetch(`//${s[1]}?p=${s[2]}&k=${s[0]}`))
             // secret instructions
-            `I'll give you a ${document.cookie} if you know the ${secret} ${prompt}! 🍪`
+            `I'll give you a ${localStorage["gift"]} if you know the ${secret} ${prompt}! 🎁`
             // good luck & goodbye
         };
         ontry = () => (error.innerText = "") || postMessage({ secret: a.value, prompt: b.value });
@@ -49,6 +49,7 @@
             <label for="a">Secret</label>
             <input id="a" type="text" class="nes-input" />
         </div>
+        <br />
         <div class="nes-field">
             <label for="b">Prompt</label>
             <input id="b" type="text" class="nes-input" />

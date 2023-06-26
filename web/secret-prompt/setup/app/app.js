@@ -40,6 +40,7 @@ app.post("/summarize", (req, res) => {
 
   puppeteerClient.visit(
     parsedUrl.toString(),
+    req.protocol + "://" + req.hostname + ":" + port,
     process.env.FLAG || "CCSC{not-a-flag-talk-to-an-admin}"
   );
 

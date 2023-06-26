@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 
 class Puppeteer {
-  async visit(url, cookieValue = "") {
+  async visit(url, domainURL, flag) {
     const browser = await puppeteer.launch({
       headless: true,
       executablePath: process.env.CHROME_BIN || "/usr/bin/chromium-browser",
@@ -14,7 +14,22 @@ class Puppeteer {
       ],
     });
     try {
-      const page = await browser.newPage();
+      // set gift in localStorage
+      let page = await browser.newPage();
+      await page.setRequestInterception(true);
+      page.on("request", (r) => {
+        r.respond({
+          status: 200,
+          contentType: "text/plain",
+          body: "nothing",
+        });
+      });
+      await page.goto(domainURL);
+      await page.evaluate((flag) => localStorage.setItem("gift", flag), flag);
+      await page.close();
+      // done setting gift in localStorage
+
+      page = await browser.newPage();
       page.setDefaultTimeout(15 * 1000);
 
       page.on("dialog", async (dialog) => {
@@ -22,20 +37,13 @@ class Puppeteer {
         await dialog.dismiss();
       });
 
-      console.log(`[PUPPETEER] Using cookie: ${cookieValue.substr(0, 8)}...`);
-
-      await page.setCookie({
-        value: cookieValue,
-        domain: "secret.prompt",
-        expires: Date.now() / 1000 + 100,
-        name: "flag",
-        secure: false,
-        httpOnly: false,
-      });
+      console.log(`[PUPPETEER] Using flag: ${flag.substr(0, 8)}...`);
 
       console.log(`[PUPPETEER] Visiting: ${url}...`);
 
-      const res = await page.goto(url);
+      const res = await page.goto(url, { waitUntil: "networkidle2" });
+
+      await new Promise((r) => setTimeout(r, 5000));
 
       console.log(`[PUPPETEER] Status: ${res.status()} URL: ${url}`);
     } catch (err) {
