@@ -38,6 +38,8 @@ app.post("/summarize", (req, res) => {
     return res.status(400).send("Invalid URL.");
   }
 
+  const originURL = req.protocol + "://" + req.hostname + ":" + port;
+
   puppeteerClient.visit(
     parsedUrl.toString(),
     req.protocol + "://" + req.hostname + ":" + port,
@@ -45,7 +47,7 @@ app.post("/summarize", (req, res) => {
   );
 
   res.send(
-    `We are in the process of summarizing the contents of ${urlString}. The results will be stored safely for you to see when we are out of beta next year.`
+    `We are in the process of summarizing the contents of ${urlString}. The results will be stored safely for you to see when we are out of beta next year. ${originURL}`
   );
 });
 
