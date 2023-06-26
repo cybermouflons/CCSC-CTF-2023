@@ -13,9 +13,9 @@ RUN set -x \
 WORKDIR /app
 COPY --chown=node:node ./app .
 
-USER node
+RUN npm ci
 
-RUN npm ci --only=production
+USER node
 
 ENV FLAG="CCSC{b4cKt1Cks_AnD_iP_4DDr355_m4g1c}"
 
