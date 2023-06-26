@@ -1,0 +1,7 @@
+version: '3'
+services:
+  secret-prompt:
+    image: ghcr.io/cybermouflons/ccsc2023/secret-prompt:latest
+    build: ./setup/
+    ports:
+      - 3000:3000
