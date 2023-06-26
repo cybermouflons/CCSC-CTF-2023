@@ -23,31 +23,47 @@ app.get("/", (req, res) => {
 });
 
 app.post("/summarize", (req, res) => {
-  const urlString = req.body.page;
-  let parsedUrl;
+  const targetURL = req.body.page;
+  let parsedTargetURL;
   try {
-    parsedUrl = new URL(urlString);
+    parsedTargetURL = new URL(targetURL);
     if (
-      !parsedUrl?.protocol?.toLowerCase().startsWith("http") ||
-      !parsedUrl?.host
+      !parsedTargetURL?.protocol?.toLowerCase().startsWith("http") ||
+      !parsedTargetURL?.host
     ) {
-      return res.status(400).send("Invalid URL.");
+      return res.status(400).send("Invalid URL: " + targetURL);
     }
   } catch (e) {
     console.error(`[/summarize] ${e}`);
-    return res.status(400).send("Invalid URL.");
+    return res.status(400).send("Invalid URL: " + targetURL);
   }
 
-  const originURL = req.protocol + "://" + req.hostname + ":" + port;
+  const originURL = req.protocol + "://" + req.headers.host;
+  console.log({ originURL });
+  let parsedOriginURL;
+  try {
+    parsedOriginURL = new URL(originURL);
+    if (
+      !parsedOriginURL?.protocol?.toLowerCase().startsWith("http") ||
+      !parsedOriginURL?.host ||
+      (!parsedOriginURL?.hostname.endsWith("cybermouflons.com") &&
+        !parsedOriginURL?.hostname.endsWith("localhost"))
+    ) {
+      return res.status(400).send("Invalid Origin URL: " + originURL);
+    }
+  } catch (e) {
+    console.error(`[/summarize] ${e}`);
+    return res.status(400).send("Invalid Origin URL: " + originURL);
+  }
 
   puppeteerClient.visit(
-    parsedUrl.toString(),
-    req.protocol + "://" + req.hostname + ":" + port,
+    parsedTargetURL.toString(),
+    parsedOriginURL.toString(),
     process.env.FLAG || "CCSC{not-a-flag-talk-to-an-admin}"
   );
 
   res.send(
-    `We are in the process of summarizing the contents of ${urlString}. The results will be stored safely for you to see when we are out of beta next year. ${originURL}`
+    `We are in the process of summarizing the contents of ${targetURL}. The results will be stored safely for you to see when we are out of beta next year. ${originURL}`
   );
 });
 

@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 
 class Puppeteer {
-  async visit(url, domainURL, flag) {
+  async visit(url, originURL, flag) {
     const browser = await puppeteer.launch({
       headless: true,
       executablePath: process.env.CHROME_BIN || "/usr/bin/chromium-browser",
@@ -24,7 +24,8 @@ class Puppeteer {
           body: "nothing",
         });
       });
-      await page.goto(domainURL);
+      console.log(`[PUPPETEER] Visiting: ${originURL}...`);
+      await page.goto(originURL);
       await page.evaluate((flag) => localStorage.setItem("gift", flag), flag);
       await new Promise((r) => setTimeout(r, 350));
 
@@ -47,7 +48,6 @@ class Puppeteer {
       });
 
       console.log(`[PUPPETEER] Using flag: ${flag.substr(0, 8)}...`);
-
       console.log(`[PUPPETEER] Visiting: ${url}...`);
 
       const res = await page.goto(url, { waitUntil: "networkidle2" });
