@@ -1,0 +1,30 @@
+name: "Mind Your A's and I's"
+author: "feltf"
+category: crypto
+
+description: |
+  When I requested my AI to generate a series of RSA keys, it suddenly emitted
+  peculiar noises. Now I wonder about the significance behind this unexpected
+  behavior. I provide you with some of the public keys and the corresponding
+  ciphertexts to help me identify the issue.
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  - CCSC{br0k3n_r4ndomn3zzz_all0ws_for_tr1vial_factoriz4tion}
+
+tags:
+  - crypto
+  - easy
+
+files:
+  - "public/ciphertexts.txt"
+  - "public/keys.zip"
+
+state: visible
+version: "0.1"
