@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  app:
+    image: ghcr.io/cybermouflons/ccsc2023/cyber-sleuths-web-security-havoc:latest # Add in prod
+    build: ./setup/
+    ports:
+      # - 3000:3000
+      - 3443:3443
+    environment:
+      host: challenge.com:3443
+      admin_username: admin
+      admin_password: this_is_a_really_long_password_loooooool_dont_guess_me_plzzz
+      flag: CCSC{hijacking_your_way_to_hell}
+    # volumes:              #
+    #   - ./setup:/app      # Remove in prod
+    #   - /app/node_modules #
+

@@ -1,0 +1,25 @@
+name: "Cyber Sleuths: Web Security Havoc"
+author: "sAINT_barber"
+category: web
+
+description: |
+  ADD DESCRIPTION
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{flag_here}
+
+tags:
+  - web
+  - medium
+
+state: visible
+version: "0.1"
