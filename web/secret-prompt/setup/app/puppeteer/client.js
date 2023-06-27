@@ -43,11 +43,9 @@ class Puppeteer {
       page.setDefaultTimeout(15 * 1000);
 
       page.on("dialog", async (dialog) => {
-        console.log(dialog.message());
         await dialog.dismiss();
       });
 
-      console.log(`[PUPPETEER] Using flag: ${flag.substr(0, 8)}...`);
       console.log(`[PUPPETEER] Visiting: ${url}...`);
 
       const res = await page.goto(url, { waitUntil: "networkidle2" });
