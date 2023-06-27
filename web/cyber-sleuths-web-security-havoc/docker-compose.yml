@@ -9,6 +9,7 @@ services:
       - 3443:3443
     environment:
       host: localhost:3443
+      cssc_host: challenges.cybermouflons.com
       admin_username: admin
       admin_password: this_is_a_really_long_password_loooooool_dont_guess_me_plzzz
       flag: CCSC{hijacking_your_way_to_hell}

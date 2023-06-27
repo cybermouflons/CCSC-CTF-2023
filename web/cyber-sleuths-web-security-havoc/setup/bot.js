@@ -29,12 +29,26 @@ async function goto(url) {
 	await username.type(admin_username);
 	await password.type(admin_password);
 	await page.keyboard.press("Enter");
+	
+	cookie = await page.cookies();
+	// console.log(cookie);
+
+	cookie[0].domain = process.env.cssc_host
+	
+	await page.setCookie(cookie[0])
+
     await page.waitForNavigation();
 
     // Go to provided URL
 	try {
         console.log("Visiting: " + url);
+		// cookie = await page.cookies();
+		// console.log(cookie);
+		
 	    await page.goto(url);
+
+		
+		
 	} catch {}
 
     await delay(1000);
