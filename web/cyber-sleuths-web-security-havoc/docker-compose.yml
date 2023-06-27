@@ -5,7 +5,6 @@ services:
     image: ghcr.io/cybermouflons/ccsc2023/cyber-sleuths-web-security-havoc:latest # Add in prod
     build: ./setup/
     ports:
-      # - 3000:3000
       - 3443:3443
     environment:
       host: localhost:3443
