@@ -13,3 +13,4 @@ Although some of the challenges may run as is, it is recommended that you have d
 ## Challenges
 
 {{ challenges_placehoder }}
+
