@@ -15,6 +15,7 @@ extra:
   decay: 50
   redirect_type: http
   compose_stack: !filecontents docker-compose.yml
+  scope: global
 
 flags:
   - CCSC{C00k13_M4st3r_h45_3nT3ReD_7h3_CH4t}
