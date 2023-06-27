@@ -1,5 +1,3 @@
-FROM php:7.4-apache
+FROM shinsenter/php:7.4-fpm-nginx
 
 COPY app /var/www/html/
-
-RUN chown -R www-data:www-data /var/www/html/

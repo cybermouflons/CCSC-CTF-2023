@@ -1,6 +1,6 @@
 name: "Electroverse: Decrypting the Digital Pulse"
 author: "s1kk1s"
-category: medium
+category: reverse
 
 description: |
  Lucas, has recently discovered that one of his trusted notetaking applications 
@@ -18,15 +18,15 @@ extra:
   decay: 50
 
 flags:
-  - CCSC2023{Hiden_Signls_D3tct3d}
+  - CCSC{Hidden_Signals_D3tect3d}
 
 tags:
   - reverse
   - web
-  - medium
+  - easy
 
 files:
   - "public/obsidian.asar"
 
-state: hidden
+state: visible
 version: "0.1"

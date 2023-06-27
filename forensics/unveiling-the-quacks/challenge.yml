@@ -1,0 +1,28 @@
+name: "Unveiling the Quacks"
+author: "s1kk1s"
+category: forensics
+
+description: |
+  Lucas and John, two  members of the resistance, have successfully retrieved a crucial pcap file through a daring covert surveillance operation. 
+  Within the encrypted network traffic lies an enigmatic domain, which was used by the AI to access an encrypted message. 
+  Your mission is to unlock the secrets of this elusive message, for it holds invaluable insights that can bolster the resistance in their operations against the oppressive regime.
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  - CCSC{P4ssw0rd-Crack1nG-101}
+
+tags:
+  - forensics
+  - beginner
+
+files:
+  - "public/traffic.zip"
+
+state: visible
+version: "0.1"

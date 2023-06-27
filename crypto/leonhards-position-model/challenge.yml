@@ -26,6 +26,6 @@ tags:
 files:
   - "public/leonhards-position-model.tar.gz"
 
-state: hidden
+state: visible
 version: "0.1"
 
