@@ -32,7 +32,7 @@ jobs:
       - name: Docker challenges list
         run: echo "${{ steps.docker-chall-discovery.outputs.dirs }}"
       
-      - uses: actions/cache@v3
+      - uses: actions/cache/restore@v3
         id: challenges-hashes-cache
         with:
           path: .cache/last_hashes
