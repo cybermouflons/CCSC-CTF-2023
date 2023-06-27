@@ -20,7 +20,7 @@ if __name__ == "__main__":
             rsa_keys.append((key, i))
 
     subprocess.check_output(
-        f"rm -f {current_dir}/key*.pub {current_dir}/keys.zip", shell=True
+        f"rm -f {current_dir}/key*.pub", shell=True
     )
 
     for element1, element2 in itertools.product(rsa_keys, repeat=2):

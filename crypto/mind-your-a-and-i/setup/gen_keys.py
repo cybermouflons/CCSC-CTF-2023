@@ -85,8 +85,9 @@ if __name__ == "__main__":
         ctxt = pow(bytes_to_long(FLAG), 0x10001, p * q)
         ciphertexts_output += f"{idx}:{ctxt}\n"
 
-    shutil.make_archive(f"{public_path}/keys", "zip", f"{public_path}")
+    shutil.make_archive(f"{current_dir}/keys", "zip", f"{public_path}")
 
     subprocess.check_output(f"rm -f {public_path}/key*.pub", shell=True)
+    subprocess.check_output(f"mv {current_dir}/keys.zip {public_path}/", shell=True)
     with open(f"{public_path}/ciphertexts.txt", "w", encoding="utf-8") as f:
         f.write(ciphertexts_output)
