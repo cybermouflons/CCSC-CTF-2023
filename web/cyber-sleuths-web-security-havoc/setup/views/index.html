@@ -27,7 +27,8 @@
 
   <script>
     // var socket = io();
-    var socket = new WebSocket("wss://{{host}}/chat");
+    host = window.location.href
+    var socket = new WebSocket(`wss://${host}/chat`);
 
     const messageArea = document.getElementById('messageArea');
     const messageInput = document.getElementById('messageInput');

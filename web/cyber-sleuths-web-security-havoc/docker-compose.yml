@@ -8,7 +8,7 @@ services:
       # - 3000:3000
       - 3443:3443
     environment:
-      host: challenge.com:3443
+      host: localhost:3443
       admin_username: admin
       admin_password: this_is_a_really_long_password_loooooool_dont_guess_me_plzzz
       flag: CCSC{hijacking_your_way_to_hell}
