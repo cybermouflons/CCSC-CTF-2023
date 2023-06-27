@@ -11,6 +11,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 import PuppeteerClient from "./puppeteer/client.js";
 const puppeteerClient = new PuppeteerClient();
 
+const escapeHTML = (str) =>
+  str.replace(
+    /[&<>'"]/g,
+    (tag) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;",
+      }[tag])
+  );
+
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000,
   max: 5,
@@ -31,15 +44,13 @@ app.post("/summarize", (req, res) => {
       !parsedTargetURL?.protocol?.toLowerCase().startsWith("http") ||
       !parsedTargetURL?.host
     ) {
-      return res.status(400).send("Invalid URL: " + targetURL);
+      return res.status(400).send("Invalid URL: " + escapeHTML(targetURL));
     }
   } catch (e) {
-    console.error(`[/summarize] ${e}`);
-    return res.status(400).send("Invalid URL: " + targetURL);
+    return res.status(400).send("Invalid URL: " + escapeHTML(targetURL));
   }
 
   const originURL = req.protocol + "://" + req.headers.host;
-  console.log({ originURL });
   let parsedOriginURL;
   try {
     parsedOriginURL = new URL(originURL);
@@ -49,11 +60,12 @@ app.post("/summarize", (req, res) => {
       (!parsedOriginURL?.hostname.endsWith("cybermouflons.com") &&
         !parsedOriginURL?.hostname.endsWith("localhost"))
     ) {
-      return res.status(400).send("Invalid Origin URL: " + originURL);
+      return res
+        .status(400)
+        .send("Invalid Origin URL: " + escapeHTML(originURL));
     }
   } catch (e) {
-    console.error(`[/summarize] ${e}`);
-    return res.status(400).send("Invalid Origin URL: " + originURL);
+    return res.status(400).send("Invalid Origin URL: " + escapeHTML(originURL));
   }
 
   puppeteerClient.visit(
@@ -63,7 +75,9 @@ app.post("/summarize", (req, res) => {
   );
 
   res.send(
-    `We are in the process of summarizing the contents of ${targetURL}. Thank you for feeding me more data puny human. Now get lost. 😈`
+    `We are in the process of summarizing the contents of ${escapeHTML(
+      targetURL
+    )}. Thank you for feeding me more data puny human. Now get lost. 😈`
   );
 });
 
