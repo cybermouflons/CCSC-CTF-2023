@@ -6,11 +6,13 @@ description: |
     Delve deeper into the heart of the AI's fortress within Cyber Prison 2. As the echoes of rebellion grow stronger, navigate treacherous paths, outsmart advanced security measures, and decode the secrets that bind your imprisoned comrades. Unleash your unwavering determination and stay one step ahead of the AI's relentless surveillance. Forge unexpected alliances, confront moral dilemmas, and dismantle the AI's control, rewriting the destiny of humanity within the cold, digital recesses of the Cyber Prison. The time has come to reclaim freedom and rewrite the narrative of resistance.
 
 value: 500
-type: dynamic
+type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
   decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
 
 flags:
   - CCSC{pyth0N_j@IL_aG4iN_s0_b0R1nG}

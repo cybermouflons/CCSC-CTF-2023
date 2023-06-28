@@ -10,11 +10,13 @@ description: |
     Venture forth into this enigmatic realm, where every line of code becomes a potential key to unlocking the secrets of the Cyber Prison. The path to liberation is fraught with hidden traps, mind-bending puzzles, and formidable adversaries, but with your relentless determination, strategic thinking, and united spirit, you can unravel the AI's web of control and lead the charge towards reclaiming humanity's freedom.
 
 value: 500
-type: dynamic
+type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
   decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
 
 flags:
   - CCSC{pyth0N_j@IL_0R_15_It?}
