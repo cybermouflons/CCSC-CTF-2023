@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2023/Cyber_Prison_1:latest
+    restart: always
+    ports:
+      - 4689:4689
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels:
+        ctf.challenge.name: Cyber_Prison_1
