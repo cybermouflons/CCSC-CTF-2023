@@ -9,4 +9,5 @@ Wireshark ->File ->Export Objects -> HTTP
 office2john flag.docx > hash.txt
 # remove name of file from hash.txt
 .\hashcat.exe -m 9600 doc.txt rockyou.txt
+# Password: Apocalypse50
 ```
