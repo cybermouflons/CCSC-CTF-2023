@@ -23,6 +23,7 @@ tags:
 
 files:
   - "public/traffic.zip"
+  - "public/password-list.txt"
 
 state: visible
 version: "0.1"
