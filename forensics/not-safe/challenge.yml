@@ -1,0 +1,27 @@
+ 
+name: "Not safe"
+author: "icyDux"
+category: forensics
+
+description: |
+  One of Lucas' and Ava's buddy, JJ, sneaked into a cafe where robots are hanging and one computer was unattended.
+
+  JJ managed to take some information from the computer and left some traces to assist during the investigation.
+
+  https://drive.google.com/file/d/116LZDKvivDR-tNKS2VSurY4rZtmfv1J1/view?usp=drive_link
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  - CCSC{AI_f0rg0t_t0_upd4t3_me}
+
+tags:
+  - forensics
+  - medium
+
+state: visible
+version: "0.1"
