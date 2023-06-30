@@ -1,0 +1,30 @@
+name: "Shellhunting"
+author: "icyDux"
+category: reverse
+
+description: |
+  One of the generals of the AI-sponsored goverment left his house unlocked while he was going to the beach. Ava spotted the powered on computer, and managed to intercept the traffic from an unknown application.
+
+  Help her to understand the contnets of the communication
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+flags:
+  -CCSC{y0u_4r3_th3_sh3LL_m4st3r!}
+
+tags:
+  - reverse
+  - hard
+
+files:
+  - "public/chall"
+  - "public/capture.pcap"
+
+state: visible
+version: "0.1"
+
