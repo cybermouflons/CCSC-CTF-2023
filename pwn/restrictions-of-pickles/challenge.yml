@@ -21,8 +21,6 @@ flags:
 
 tags:
   - pwn
-  - pickle
-  - python
 
 files:
   - "public/ai_rop.py"

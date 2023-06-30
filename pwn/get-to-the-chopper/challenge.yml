@@ -22,7 +22,6 @@ flags:
 
 tags:
   - pwn
-  - chop
   - cpp
 
 files:
