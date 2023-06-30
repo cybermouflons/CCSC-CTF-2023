@@ -1,0 +1,31 @@
+name: "ROP: Restrictions Of Pickles"
+author: "neo"
+category: pwn
+
+description: |
+  The AI started learning how to create its own exploits... It's not the best
+  at it right now, but you better stop it before it becomes too good, else
+  Lucas is going to be in a bit of a pickle...
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{1t_l34rn3d_r0p_but_n0t_pickl3!}
+
+tags:
+  - pwn
+  - pickle
+  - python
+
+files:
+  - "public/ai_rop.py"
+
+state: visible
+version: "0.1"

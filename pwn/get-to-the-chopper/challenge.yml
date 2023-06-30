@@ -3,7 +3,10 @@ author: "neo"
 category: pwn
 
 description: |
-  AI has taken over and started manufacturing choppers to take over the skies as well! It has managed to trap you in its manufacturing facility, but thankfully you managed to locate the chopper-controlling terminal. Can you UNWIND and HANDLE the pressure in order to figure your way out?
+  AI has taken over and started manufacturing choppers to take over the skies
+  as well! It has managed to trap Lucas in its manufacturing facility, but
+  thankfully he managed to locate the chopper-controlling terminal. Can you
+  help Lucas UNWIND and HANDLE the pressure in order to figure his way out?
 
 value: 500
 type: dynamic_docker
