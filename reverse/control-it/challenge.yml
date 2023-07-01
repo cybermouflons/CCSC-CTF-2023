@@ -15,7 +15,7 @@ extra:
   decay: 25
 
 flags:
-  -CCSC{g0_W1th_Th3_fl0w_0r_l0s3!!}
+  - CCSC{g0_W1th_Th3_fl0w_0r_l0s3!!}
 
 tags:
   - reverse
