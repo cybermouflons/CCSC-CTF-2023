@@ -12,7 +12,7 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   -CCSC{g0_W1th_Th3_fl0w_0r_l0s3!!}

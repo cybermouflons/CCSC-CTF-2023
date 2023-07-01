@@ -13,7 +13,7 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{br0k3n_r4ndomn3zzz_all0ws_for_tr1vial_factoriz4tion}

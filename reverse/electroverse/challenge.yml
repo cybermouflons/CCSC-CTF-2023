@@ -15,7 +15,7 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{Hidden_Signals_D3tect3d}

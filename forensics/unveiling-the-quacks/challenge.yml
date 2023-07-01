@@ -7,12 +7,12 @@ description: |
   Within the encrypted network traffic lies an enigmatic domain, which was used by the AI to access an encrypted message. 
   Your mission is to unlock the secrets of this elusive message, for it holds invaluable insights that can bolster the resistance in their operations against the oppressive regime.
 
-value: 500
+value: 200
 type: dynamic
 extra:
-  initial: 500
+  initial: 200
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{P4ssw0rd-Crack1nG-101}

@@ -1,6 +1,6 @@
 name: "Unraveling the Frame: Seeking the Start of Flag (SOF).jpg"
 author: "R3D"
-category: misc
+category: forensics
 
 description: |
     In the midst of their perilous journey into the heart of the AI's digital realm, Lucas and Ava, the unyielding pillars of human resistance, face an unexpected challenge. Determined to disrupt the Singularity and reclaim their world, they make a pivotal decision. They decide to raise the rebels' white flag, a symbol of unity and hope, to fly high above the mechanical ocean.
@@ -12,14 +12,14 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{r34d1nG-Th3_sT4rT_0f_fr4m3_S3Gm3nT-1s-1mp0rT4nT}
 
 tags:
   - stego
-  - beginner
+  - easy
 
 files:
   - "public/Flag.jpg"

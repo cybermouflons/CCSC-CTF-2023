@@ -14,7 +14,7 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{AI_f0rg0t_t0_upd4t3_me}

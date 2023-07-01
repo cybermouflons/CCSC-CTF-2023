@@ -8,12 +8,12 @@ description: |
   However, much to my surprise, instead of receiving the anticipated salad, I
   was presented with a message that proved completely unintelligible to me.
 
-value: 500
+value: 200
 type: dynamic
 extra:
-  initial: 500
+  initial: 200
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{y0u_can_always_bruteforc3_a_small_k3y_sp4ce}

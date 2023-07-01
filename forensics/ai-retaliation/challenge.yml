@@ -19,14 +19,14 @@ type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
 
 flags:
   - CCSC{z1GbE3_pR0t0c01-m4T3_<3}
 
 tags:
   - forensics
-  - beginner
+  - medium
 
 files:
   - "public/mesh.pcap"
