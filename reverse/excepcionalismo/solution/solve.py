@@ -28,6 +28,7 @@ solver.add(
     x[0] == ord("C"),
     x[6] == ord("H"),
     x[8] == ord("2"),
+    x[10] == ord("h"),
     x[17] == ord("o"),
     x[28] == ord("e"),
 )
@@ -52,15 +53,18 @@ solver.add(
 
 # consrtaint #4:
 solver.add(
-    ZeroExt(56, x[3]) + ZeroExt(48, u16(x, 6)) + ZeroExt(32, u32(x, 12)) + u64(x, 24) == BitVecVal(3847032193106119999, 64)
+    ZeroExt(56, x[3]) +\
+    ZeroExt(48, u16(x, 6)) +\
+    ZeroExt(32, u32(x, 12)) +\
+    u64(x, 24) == BitVecVal(3847032193106119999, 64)
 )
 
 # consrtaint #5:
 solver.add(
-    x[19] * x[22] == BitVecVal(10920, 8),
-    x[28] * x[29] == BitVecVal(10403, 8),
-    x[14] * x[5] == BitVecVal(2652, 8),
-    x[13] * x[21] == BitVecVal(87 * 75, 8),
+    ZeroExt(8, x[19]) * ZeroExt(8, x[22]) == BitVecVal(10920, 16),
+    ZeroExt(8, x[28]) * ZeroExt(8, x[29]) == BitVecVal(10403, 16),
+    ZeroExt(8, x[14]) * ZeroExt(8, x[5])  == BitVecVal(2652, 16),
+    ZeroExt(8, x[13]) * ZeroExt(8, x[21]) == BitVecVal(87 * 75, 16),
 )
 
 # consrtaint #6:
@@ -70,8 +74,15 @@ solver.add(
 
 # consrtaint #7:
 solver.add(
-    ZeroExt(56, x[0]) + ZeroExt(48, u16(x, 12)) + ZeroExt(32, u32(x, 14)) +  u64(x, 20) == BitVecVal(3990552343616493840, 64),
-    ZeroExt(56, x[0]) + ZeroExt(48, u16(x, 0)) + ZeroExt(32, u32(x, 0)) +  u64(x, 0) == BitVecVal(7730486428687202060, 64)
+    ZeroExt(56, x[0]) +\
+    ZeroExt(48, u16(x, 12)) +\
+    ZeroExt(32, u32(x, 14)) +\
+    u64(x, 20) == BitVecVal(3990552343616493840, 64),
+    
+    ZeroExt(56, x[0]) +\
+    ZeroExt(48, u16(x, 0)) +\
+    ZeroExt(32, u32(x, 0)) +\
+    u64(x, 0) == BitVecVal(7730486428687202060, 64)
 )
 
 solutions = {}
@@ -81,7 +92,7 @@ while solver.check() == sat:
     result = [model[x[i]].as_long() for i in range(TOTAL_ITEMS)]
     result = ''.join(chr(c) for c in result)
 
-    if solutions.get(result):
+    if solutions.get(result, None):
         break
     
     solutions[result] = True
@@ -91,3 +102,4 @@ else:
     exit()
 
 print(solutions.keys())
+# CRpyr4Hk2GhxHW3vsolhRKiC6Ja7egc5
