@@ -6,10 +6,10 @@ description: |
   The AI has learned from its last mistake and has strengthened its defenses...
   What are you going to do this time?
 
-value: 500
+value: 250
 type: dynamic_docker
 extra:
-  initial: 500
+  initial: 250
   minimum: 100
   decay: 25
   redirect_type: direct
