@@ -1,0 +1,28 @@
+name: "Attack the Core"
+author: "s3nn"
+category: pwn
+
+description: |
+  A brave, unnamed reconnoiterer has discovered an endpoint that interfaces with the AI's core. This could be the Pulse's chance to exterminate the machine vermin once and for all. 
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{That_w4s_fcking_h4rd_to_M4ke_l3ts_1mprove_T0gether}
+
+tags:
+  - pwn
+  - hard
+
+files:
+  - "public/attack-the-core.tar.gz"
+
+state: hidden
+version: "0.1"
