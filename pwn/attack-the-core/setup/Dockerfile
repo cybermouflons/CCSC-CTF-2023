@@ -11,7 +11,6 @@ RUN apt-get install -y qemu-system-x86
 RUN groupadd -r user && useradd -r -g user user
 
 COPY --chown=root:user ./run.sh /
-COPY --chown=root:root ./pwn.xinetd /etc/xinetd.d/pwn
 COPY --chown=root:user ./initramfs.cpio.gz /
 COPY --chown=root:user ./bzImage /
 
