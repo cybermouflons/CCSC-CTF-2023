@@ -14,8 +14,7 @@ COPY --chown=root:user ./run.sh /
 COPY --chown=root:user ./initramfs.cpio.gz /
 COPY --chown=root:user ./bzImage /
 
-RUN chmod 555 ./run.sh && \
-    chmod 444 /etc/xinetd.d/pwn
+RUN chmod 555 ./run.sh
 
 #USER user
 EXPOSE 1337
