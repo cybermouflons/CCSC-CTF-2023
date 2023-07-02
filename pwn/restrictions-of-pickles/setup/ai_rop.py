@@ -27,12 +27,17 @@ ADVANCED_AI_ROP(rdi=0xDEADBEEF, rsi=0xCAFEBABE)
 class SafeUnpickler(pickle.Unpickler):
     def find_class(self, module, name):
         print("Only ROP stuff here!")
-        if module == "pwnlib.rop" and "__" not in name:
+
+        if "__" in name:
+            raise pickle.UnpicklingError("Error")
+
+        if module == "pwnlib.rop" and name in dir(pwnlib.rop):
             return getattr(pwnlib.rop, name)
-        if module == "pwnlib.rop.rop" and "__" not in name:
+        if module == "pwnlib.rop.rop" and name in dir(pwnlib.rop.rop):
             return getattr(pwnlib.rop.rop, name)
-        if module == "pwnlib.rop.rop.ROP" and "__" not in name:
+        if module == "pwnlib.rop.rop.ROP" and name in dir(pwnlib.rop.rop.ROP):
             return getattr(pwnlib.rop.rop.ROP, name)
+
         raise pickle.UnpicklingError("Error")
 
 

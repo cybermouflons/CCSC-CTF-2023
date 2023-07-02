@@ -1,0 +1,29 @@
+name: "Get to the CHOPper! Part 2"
+author: "neo"
+category: pwn
+
+description: |
+  The AI has learned from its last mistake and has strengthened its defenses...
+  What are you going to do this time?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{just_f1nd_th3_r1ght_h4ndl3r!}
+
+tags:
+  - pwn
+  - cpp
+
+files:
+  - "public/chopper2.tar.gz"
+
+state: visible
+version: "0.1"
