@@ -31,5 +31,5 @@ tags:
 files:
   - "public/mesh.pcap"
 
-state: visible
+state: hidden
 version: "0.1"
