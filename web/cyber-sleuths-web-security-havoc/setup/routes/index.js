@@ -2,6 +2,8 @@ const express = require('express')
 const chatbot = require('../chatbot')
 const isAuthenticated = require('../middleware/authentication');
 const router = express.Router({ caseSensitive: true });
+const fs = require('fs');
+const path = require('path');
 
 const response = data => ({ message: data });
 
@@ -11,9 +13,25 @@ router.get('/', isAuthenticated, (req, res) => {
     return res.render('index.html', { host });
 });
 
+
 router.get('/login', (req, res) => {
     return res.render('login.html');
 });
+
+
+router.get('/tmp-:filename', (req, res) => {
+
+    const regex = /^[a-z]{6}\.html$/;
+    const filename = req.params.filename;
+    const filePath = path.join('uploads', filename);
+
+
+    if (fs.existsSync(filePath) && regex.test(filename)) {
+      res.render(filename);
+    } else {
+      return res.status(404).send(response('File not found - sorry ¯\\_(ツ)_/¯'));
+    }
+  });
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
@@ -30,7 +48,6 @@ router.post('/login', async (req, res) => {
             .catch(() => res.status(403).send(response('Invalid username or password!')));
     }
     return res.status(500).send(response('Missing parameters!'));
-    // If username and password are valid
 
 });
 
@@ -52,13 +69,6 @@ router.post('/register', async (req, res) => {
     // Redirect to login page
     return res.redirect('/login');
   });
-
-// app.get('/logout',(req,res) => {
-
-//     req.session.destroy();
-
-//     res.redirect('/');
-// });
 
 router.ws('/chat', function(ws, req) {
     ws.on('message', function(msg) {

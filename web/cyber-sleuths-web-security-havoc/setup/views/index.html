@@ -4,67 +4,20 @@
   <title>Chat Box Example</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="static/css/styles.css">
-
 </head>
+
 <body class="gradient-custom">
- 
-
-
   <div class="container">
-
-    <h1 class="text-center mb-4">Chat Box</h1>
-    
-    <div class="chat-box col-12">
-      <div class="message-area" id="messageArea"></div>
-      <div class="input-group">
-        <input id="messageInput" class="form-control" placeholder="Type a message...">
-      </div>
+    <h1 class="text-center mb-4">Let's Chat</h1>
+    <div id="messageArea" class="chatbox"></div>
+    <div class="input-group">
+      <input id="messageInput" type="text" class="form-control" placeholder="Type your message...">
     </div>
-
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-  <script>
-    // var socket = io();
-    host = window.location.host
-    var socket = new WebSocket(`wss://${host}/chat`);
-
-    const messageArea = document.getElementById('messageArea');
-    const messageInput = document.getElementById('messageInput');
-
-    // Function to add a message to the message area
-    function addMessage(username, message) {
-      const messageElement = document.createElement('p');
-      messageElement.className = 'message';
-      messageElement.innerHTML = `<strong>${username}:</strong> ${message}`;
-      messageArea.appendChild(messageElement);
-
-      // Scroll to the bottom of the message area
-      messageArea.scrollTop = messageArea.scrollHeight;
-    }
-
-    // Function to send a message
-    function sendMessage() {
-      const message = messageInput.value.trim();
-      if (message !== '') {
-        addMessage('You', message);
-        socket.send(message);
-        messageInput.value = '';
-      }
-    }
-
-    socket.onmessage = (event) => {
-      var response = JSON.parse(event.data);
-      addMessage(response.username, response.message);
-    };
-
-    $('#messageInput').keypress(function (e) {
-      if (e.which == 13) {
-        sendMessage();
-      }
-    });
-
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
+  <script src="/static/js/jquery.js"></script>
+  <script src="/static/js/utils.js"></script>
+
 </html>

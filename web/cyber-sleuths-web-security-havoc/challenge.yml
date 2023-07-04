@@ -3,23 +3,27 @@ author: "sAINT_barber"
 category: web
 
 description: |
-  ADD DESCRIPTION
+  We are organizing a group of cyber sleuths to carry out top secret missions. 
+  Apparently there is a flag on the root `/` path of this server, but no one has ever managed to read it. 
+  Fetch it for us and consider yourself part of the team. 
+  Good luck rookie.
+
 
 value: 500
 type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
-  decay: 25
-  redirect_type: http
+  decay: 50
+  redirect_type: https
   compose_stack: !filecontents docker-compose.yml
 
 flags:
-  - CCSC{flag_here}
+  - CCSC{1nj3ct1ng_t3mpl4t3s_4nd_H1j4ck1ng_w3bs0ck3ts_s1nc3_jun3_2008}
 
 tags:
   - web
-  - medium
+  - hard
 
-state: hidden
+state: visible
 version: "0.1"
