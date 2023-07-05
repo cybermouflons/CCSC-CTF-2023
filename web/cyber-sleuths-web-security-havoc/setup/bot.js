@@ -31,9 +31,8 @@ async function goto(url) {
 	await page.keyboard.press("Enter");
 	
 	cookie = await page.cookies();
-	// console.log(cookie);
 
-	cookie[0].domain = process.env.cssc_host
+	cookie[0].domain = process.env.ccsc_host
 	
 	await page.setCookie(cookie[0])
 
@@ -41,13 +40,9 @@ async function goto(url) {
 
     // Go to provided URL
 	try {
-        console.log("Visiting: " + url);
-		// cookie = await page.cookies();
-		// console.log(cookie);
-		
-	    await page.goto(url);
+        // console.log("Visiting: " + url);
 
-		
+	    await page.goto(url);
 		
 	} catch {}
 

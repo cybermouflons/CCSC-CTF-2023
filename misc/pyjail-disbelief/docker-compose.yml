@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2023/pyjail-disbelief:latest
+    restart: always
+    ports:
+      - 4690:4690
+    build:
+      context: ./setup
+      dockerfile: Dockerfile

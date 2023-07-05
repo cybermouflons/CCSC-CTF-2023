@@ -1,0 +1,14 @@
+/*Service in Port 50051*/
+syntax = "proto3";
+
+service ExternalDataService {
+  rpc GetData(ExternalDataRequest) returns (ExternalDataResponse) {}
+}
+
+message ExternalDataRequest {
+  string url = 1;
+}
+
+message ExternalDataResponse {
+  string data = 1;
+}

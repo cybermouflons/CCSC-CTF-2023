@@ -8,14 +8,16 @@ const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const {join} = require('path');
+
 
 
 // const http_port = 3000;
 // const https_port = 3443;
 const host = process.env.host
 
-var privateKey  = fs.readFileSync('/app/sslcert/server.key', 'utf8');
-var certificate = fs.readFileSync('/app/sslcert/server.crt', 'utf8');
+var privateKey  = fs.readFileSync(join(__dirname, 'sslcert', 'server.key'), 'utf8');
+var certificate = fs.readFileSync(join(__dirname, 'sslcert', 'server.crt'), 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
 
@@ -35,12 +37,13 @@ const routes = require('./routes'); // Load routers after expressws, to allow it
 
 const db = new Database('cswsh.db');
 
-nunjucks.configure('views', {
+nunjucks.configure(['views', 'uploads'], {
   autoescape: true,
   express: app
 }).addFilter('tojson', function(obj) {
   return JSON.stringify(obj);
 });
+
 
 app.use(session({
   name: `session`,
@@ -76,16 +79,7 @@ app.use(function(err, req, res, next) {
 
   await db.connect();
   await db.migrate();
-
-  // app.listen(port, () => {
-  //   console.log(`Server running at http://localhost:${port}/`);
-  // });
-
-
-  // httpServer.listen(http_port, () => {
-  //   console.log(`Server running at http://localhost:${http_port}/`);
-  // });
-
+  
   httpsServer.listen(3443, () => {
     console.log(`Server running at https://${host}/`);
   });

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -e html,js server.js",
+    "dev": "nodemon -e html,js,css server.js",
     "start": "node server.js"
   },
   "keywords": [],

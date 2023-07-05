@@ -1,0 +1,29 @@
+name: "Guardians' RPC Rift"
+author: "kotsios"
+category: web
+
+description: |
+    This system operates on a distinct communication protocol, concealed within the AI's web infrastructure. Your mission, should you choose to accept, is to uncover and exploit any subtle rift within this protocol. The discovery of this rift could disrupt the AI's control, giving us a significant edge in our struggle. Unearth the hidden, exploit the unexplored, and strengthen the Pulse of our resistance. Can you pierce the AI's defenses and widen the rift?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{Unl3ash_th3_p0w3r_0f_kn0wl3dg3,_wi3ld_1t_@s_y0ur_h@ck1ng_sw0rd!}
+
+files:
+  - public/flag.proto
+
+tags:
+  - easy
+  - rpc
+
+state: visible
+version: "0.1"
+
