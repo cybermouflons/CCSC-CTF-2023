@@ -1,0 +1,31 @@
+name: "Little Shakalaka"
+author: "feltf"
+category: crypto
+
+description: |
+  In the realm of AI, my little brother Shakalaka embarked on a wondrous
+  exploration. With hopeful eyes, he dreamt of a remote authenticated storage,
+  a gift beyond his wildest imagination.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{m3rkle_d4mgard_construct1on_is_vulner4ble_t0_length_ext3nsion_sha3_is_n0t}
+
+tags:
+  - crypto
+  - medium/hard
+
+files:
+  - "public/shakalaka.py"
+  - "public/server.py"
+
+state: visible
+version: "0.1"
