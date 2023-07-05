@@ -17,6 +17,9 @@ extra:
 flags:
   - CCSC{Unl3ash_th3_p0w3r_0f_kn0wl3dg3,_wi3ld_1t_@s_y0ur_h@ck1ng_sw0rd!}
 
+files:
+  - public/flag.proto
+
 tags:
   - easy
   - rpc
