@@ -1,0 +1,29 @@
+name: "PyJail Disbelief"
+author: "rok0s"
+category: misc
+
+description: |
+    Your task is to infiltrate a perplexing Python Jail (PyJail), a segment of the AI's network that sparked disbelief among our ranks. Using your Python prowess and out-of-the-box thinking, exploit the PyJail's weaknesses, bypass its restrictions, and retrieve valuable intel. Your skills will determine if this 'disbelief' is an AI riddle or a trap. Can you defy disbelief and conquer the PyJail? The Pulse counts on your success.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{D1s4sS3mbL1ng_PyTh0n_Byt3C0d3_w1th_D1s_M0dul3}
+
+files:
+  - public/disbelief.py
+
+tags:
+  - pyjail
+  - medium
+
+state: hidden
+version: "0.1"
+
