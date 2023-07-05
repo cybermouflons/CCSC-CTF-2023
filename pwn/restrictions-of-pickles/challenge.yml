@@ -25,6 +25,7 @@ tags:
 
 files:
   - "public/ai_rop.py"
+  - "public/Dockerfile"
 
 state: visible
 version: "0.1"
