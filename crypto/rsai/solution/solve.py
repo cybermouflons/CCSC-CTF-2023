@@ -69,7 +69,7 @@ def edge_case(e: int, c: int, N: int):
     p = GCD(c, N)
     q = N // p
     phiN = (p - 1) * (q - 1)
-    d = pow(e, -1, N)
+    d = pow(e, -1, phiN)
     m = pow(c, d, N)
     flag = long_to_bytes(m)
     print(flag)
