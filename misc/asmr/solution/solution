@@ -1,0 +1,11 @@
+; Move the flag address into ECX
+mov ecx, flag
+
+; Write the flag to the standard output
+xor eax, eax
+xor ebx, ebx
+xor edx, edx
+mov al, 4
+mov bl, 1
+mov dl, 38
+int 0x80
