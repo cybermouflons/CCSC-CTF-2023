@@ -19,6 +19,7 @@ flags:
 
 files:
   - build/vm.bin
+  - setup/wrapper.py
 
 tags:
   - medium
