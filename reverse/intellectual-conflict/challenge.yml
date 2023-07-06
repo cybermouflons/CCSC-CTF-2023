@@ -1,0 +1,28 @@
+name: "Intellectual Conflict"
+author: "0xishtar"
+category: reverse
+
+description: |
+    Find the flag.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{b33p_b00p_boP_y0u_foUnD_mY_secr3t_fl0x41g}
+
+files:
+  - build/vm.bin
+
+tags:
+  - medium
+
+state: visible
+version: "0.1"
+

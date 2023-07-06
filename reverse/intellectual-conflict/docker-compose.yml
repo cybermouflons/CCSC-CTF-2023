@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2023/intellectual-conflict:latest
+    restart: always
+    ports:
+      - 6666:6666
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
