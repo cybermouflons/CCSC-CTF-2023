@@ -3,7 +3,7 @@ author: "sAINT_barber"
 category: web
 
 description: |
-  This is old API for a classroom application that is no longer used due to the AI takeover.
+  This is an old API for a classroom application that is no longer used due to the AI takeover.
   Inside information states the API is still available and is connected to the AIs internal infrastructure.
   Can you can hack it and read any hidden secrets on the root `/` path of the server?
 
@@ -22,6 +22,9 @@ flags:
 tags:
   - web
   - hard
+
+files:
+  - "public/forgotten-classes.zip"
 
 state: visible
 version: "0.1"
