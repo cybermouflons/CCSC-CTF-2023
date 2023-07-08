@@ -1,0 +1,8 @@
+version: '3'
+services:
+
+  webapp:
+    image: ghcr.io/cybermouflons/ccsc2023/forgotten-classes:latest
+    build: ./setup/
+    ports:
+      - 3000:3000
