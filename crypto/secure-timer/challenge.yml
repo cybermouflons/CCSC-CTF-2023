@@ -26,6 +26,14 @@ extra:
 flags:
   - CCSC{Make_sur3_that_you_never_ev3r_deviate_from_st4ndards}
 
+hints:
+  - |
+   Have you tried to compare RFC6979 section [3.2](https://datatracker.ietf.org/doc/html/rfc6979#section-3.2),
+   which describes the deterministic generation of `k`, with my AI's implementation? The AI malfunctioned and
+   produced a slightly different implementation which may help you to recover the secret key `d`
+   (denoted by `x` in the RFC). Instead of providing `d` to the HMAC, the flawed implementation XORs the
+   first part and XNORs the second part of `d` with a known intermediate constant `k`.
+
 tags:
   - crypto
   - hard
