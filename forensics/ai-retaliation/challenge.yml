@@ -1,4 +1,4 @@
- 
+
 name: "AI Retaliation"
 author: "R3D"
 category: forensics
@@ -14,6 +14,8 @@ description: |
 
     Good luck, Lucas. The future of the resistance lies in your hands!
 
+    https://drive.google.com/file/d/1g56Tr3J2rzwg1JwlMSxcqT-oxZDme9jI/view?usp=drive_link
+
 value: 500
 type: dynamic
 extra:
@@ -26,10 +28,8 @@ flags:
 
 tags:
   - forensics
-  - medium
+  - easy
 
-files:
-  - "public/mesh.pcap"
 
-state: hidden
+state: visible
 version: "0.1"

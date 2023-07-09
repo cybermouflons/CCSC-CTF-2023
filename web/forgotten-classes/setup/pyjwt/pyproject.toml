@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.coverage.run]
+parallel = true
+branch = true
+source = ["jwt"]
+
+[tool.coverage.paths]
+source = ["jwt", ".tox/*/site-packages"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
+
+[tool.isort]
+profile = "black"
+atomic = true
+combine_as_imports = true
+
+[tool.mypy]
+python_version = 3.11
+ignore_missing_imports = true
+warn_unused_ignores = true
+no_implicit_optional = true
+strict = true
+# TODO: remove these strict loosenings when possible
+allow_incomplete_defs = true
+allow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_calls = false
