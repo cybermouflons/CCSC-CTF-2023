@@ -14,8 +14,7 @@ INITIAL_DATA = {
             "id":1,
             "username": "admin",
             "password": Hasher.get_password_hash(
-                "test",
-                # "".join(random.choice(string.printable) for _ in range(32))
+                "".join(random.choice(string.printable) for _ in range(32))
             ),
             "is_superuser": True
         },
