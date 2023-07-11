@@ -14,5 +14,6 @@ class UserCreate(UserLogin):
 class QuestionInput(BaseModel):
     questionInput: str
 
+
 class ContactSupport(BaseModel):
-    url: str
+    question_id: str

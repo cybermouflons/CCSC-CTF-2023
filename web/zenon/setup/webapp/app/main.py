@@ -7,6 +7,8 @@ from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from sqlalchemy.orm import Session
 from Secweb import SecWeb
+from fastapi_simple_cachecontrol.types import CacheControl
+from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
 
 from app.services import LLM
 from app.auth import authenticate_user, create_access_token
@@ -23,21 +25,27 @@ from app.bot import visit_url_as_admin
 from app.schema import QuestionInput, UserCreate, UserLogin, ContactSupport
 
 app = FastAPI()
+app.add_middleware(CacheControlMiddleware, cache_control=CacheControl("no-cache"))
 
 SecWeb(
     app=app,
     Option={
         "csp": {
             "script-src": [
-                "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
-                "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
-                "'sha256-H+6ErnHJmnAuPX7bEauxtMDtlhjMHBGXRJmuASHcPqE='",
-                "'sha256-oMMZCMbVJ7t/IOsW4J662p3wUBNDQWuXWlyK1uPNv/8='",
-                "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
-                "'sha256-jLaI5TblrPhviwUk+NjPT8tIWBuypwNWoRB6YnocHEA='",
-                "'sha256-79tc32sftWvCGw50SB2wmAErpg6ogA4hwqLOKYZShw8='",
+                "'sha256-sIM6dK+jF7/lZYL2oEOngswr7zuA4irYgg8reJoNjFE='",
                 "'sha256-ITEw0OWw59YW1LFRBzsdaDsRqC20e2lylGoWsiQuE/E='",
-                "'sha256-otERR5/pHmqvjdBVqRrYfLhb1dxBBlJQ7tjHVfDLgmE='",
+                "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
+                "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
+                "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
+                # "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
+                # "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
+                # "'sha256-H+6ErnHJmnAuPX7bEauxtMDtlhjMHBGXRJmuASHcPqE='",
+                # "'sha256-oMMZCMbVJ7t/IOsW4J662p3wUBNDQWuXWlyK1uPNv/8='",
+                # "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
+                # "'sha256-jLaI5TblrPhviwUk+NjPT8tIWBuypwNWoRB6YnocHEA='",
+                # "'sha256-79tc32sftWvCGw50SB2wmAErpg6ogA4hwqLOKYZShw8='",
+                # "'sha256-ITEw0OWw59YW1LFRBzsdaDsRqC20e2lylGoWsiQuE/E='",
+                # "'sha256-otERR5/pHmqvjdBVqRrYfLhb1dxBBlJQ7tjHVfDLgmE='",
                 "'strict-dynamic'",
                 "'self'",
             ],
@@ -104,7 +112,6 @@ class LoginCBV:
         response.set_cookie(
             key="access_token", value=f"Bearer {access_token}", httponly=True
         )
-
         return response
 
 
@@ -200,7 +207,7 @@ class ContactCBV:
     @router.post("/contact")
     async def post_contact(self, request: Request, body: ContactSupport):
         try:
-            await visit_url_as_admin(body.url)
+            await visit_url_as_admin(body.question_id)
         except Exception as e:
             traceback.print_exc()
             return responses.RedirectResponse(

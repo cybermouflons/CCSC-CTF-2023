@@ -303,6 +303,20 @@ typing-extensions = ">=4.5.0"
 all = ["email-validator (>=1.1.1)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "python-multipart (>=0.0.5)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
+name = "fastapi-simple-cachecontrol"
+version = "0.1.0"
+description = "Cache-Control header management for FastAPI"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "fastapi_simple_cachecontrol-0.1.0-py3-none-any.whl", hash = "sha256:109910fcc77e8e79b64151bf7999a291ba7a940d68f45883b6a98bd58adf2ecb"},
+    {file = "fastapi_simple_cachecontrol-0.1.0.tar.gz", hash = "sha256:dd5bccfcc84cebea99c92f862ade8da462e361893e5c6f1471704fdf4f6a1706"},
+]
+
+[package.dependencies]
+fastapi = "*"
+
+[[package]]
 name = "fastapi-utils"
 version = "0.2.1"
 description = "Reusable utilities for FastAPI"
@@ -1066,4 +1080,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "30d4a1597b6ed05900e3e70c71e20015108967dcbb1a31adaa50eca13893e1ac"
+content-hash = "98b9812e7f21cf851857700f08d8e88c569908e04a295a09b8c93b113bbd92f4"

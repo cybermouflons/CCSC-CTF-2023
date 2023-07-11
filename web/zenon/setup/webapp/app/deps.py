@@ -27,8 +27,7 @@ def require_login(token: str = Depends(require_token)):
         )
     except (jwt.JWTError, ValidationError):
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Could not validate credentials",
+            status_code=302, detail="Not authorized", headers={"Location": "/login"}
         )
     username = payload["sub"]
     with _get_db_session() as db:
