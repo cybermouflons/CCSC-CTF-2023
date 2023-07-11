@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+
+    <title>Zenon</title>
+</head>
+
+<body class="h-100">
+
+    {% block navbar %}
+    {% if user %}
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Zenon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endif %}
+    {% endblock navbar %}
+
+
+    <div class="container h-100" style="position: relative;">
+        
+        {% block content %}
+        {% endblock content %}
+
+        {% block scripts %}
+        {% endblock scripts %}
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script> -->
+
+        <script type="text/javascript">
+            window.mdbIntegrity = window.mdbIntegrity || {
+                'value' : 'qYZnwTGERvO21q6vUgTxlX/ZRePVrx47h4uVKmKOXTc=',
+            }
+            // securely add the analytics code into iframe
+            script = document.createElement('script');
+            script.setAttribute('src', 'static/js/mdb.js');
+            script.setAttribute("type", "text/javascript");
+            script.setAttribute("defer",undefined);
+            script.setAttribute('integrity', 'sha256-'+mdbIntegrity.value);
+            script.setAttribute('crossorigin', 'anonymous');
+            document.body.appendChild(script);
+        </script>
+
+        <script>
+            function showAlert(message) {
+                const toast = document.querySelector('.alert-text');
+                toast.innerText = message;
+                toast.classList.remove('d-none');
+            }
+
+            function showSuccess(message) {
+                const toast = document.querySelector('.success-text');
+                toast.innerText = message;
+                toast.classList.remove('d-none');
+            }
+
+            window.addEventListener('DOMContentLoaded', (event) => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const alertParam = urlParams.get('alert');
+                const successParam = urlParams.get('success');
+                if (alertParam) {
+                    showAlert(alertParam);
+                }
+                if (successParam) {
+                    showSuccess(successParam);
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
