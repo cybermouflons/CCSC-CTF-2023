@@ -33,6 +33,25 @@ hints:
    produced a slightly different implementation which may help you to recover the secret key `d`
    (denoted by `x` in the RFC). Instead of providing `d` to the HMAC, the flawed implementation XORs the
    first part and XNORs the second part of `d` with a known intermediate constant `k`.
+  - |
+   Did you know that `a XOR b = a + b - 2*(a&b)` ?
+
+   First try to solve, locally, an easier version of the challenge.
+   
+   Replace the following lines in `server.py`
+
+   ```python
+   k_bytes = xor(tmp[: q_size // 2], x_octets[: q_size // 2])
+   k_bytes += xnor(tmp[q_size // 2 :], x_octets[q_size // 2 :])
+   ```
+
+   with
+
+   ```python
+   k_bytes = xor(tmp, x_octets)
+   ```
+
+   Finally, try to extend your solution to solve the original challenge.
 
 tags:
   - crypto
