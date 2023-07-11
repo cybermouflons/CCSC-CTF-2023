@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form id="questionForm" action="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="questionInput" value="{{ question.questionInput }}" disabled>
+                        </div>
+                    </form>
+                    <br />
+                    <div class="bot-response" id="botResponse">
+                        <div class="card border-light mb-3">
+                            <div class="card-header">AI Response</div>
+                            <div class="card-body">
+                                <p class="card-text question-response">{{question.response | safe}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script>
+    const form = document.getElementById('questionForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const questionInput = document.getElementById('questionInput').value;
+
+        fetch('/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ questionInput })
+        }).then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        })
+    });
+    
+</script>
+
+{% endblock scripts %}

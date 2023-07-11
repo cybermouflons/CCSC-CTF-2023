@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  proxy:
+    image: ghcr.io/cybermouflons/ccsc2023/zenon/proxy:latest
+    build: ./setup/proxy
+    
+  webapp:
+    image: ghcr.io/cybermouflons/ccsc2023/zenon/app:latest
+    build: ./setup/webapp
+    ports:
+      - 8000:8000
+    environment:
+      - LLM_HOST=proxy:9000
+      - APP_HOSTNAME=webapp
+    

@@ -1,0 +1,25 @@
+name: "Zenon"
+author: "rok0s"
+category: web
+
+description: |
+  Your mission is to infiltrate one of the AI's large language models (LLM) systems. Our intel suggests that these models are the AI's primary tool for understanding and manipulating human language. Manipulate the LLM called Zenon, and gather valuable data about the AI's strategies and plans. This could potentially provide us crucial insights and bring about a resurgence in our fight against the AI.Can you turn their own tool against them and force the LLM to reveal the AI's secrets? The Pulse of our resistance is in your hands.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{LLMs_4nD_w3b_VuLn5_B3cAus3_wHY_n0t!}
+
+tags:
+  - web
+  - hard
+
+state: hidden
+version: "0.1"

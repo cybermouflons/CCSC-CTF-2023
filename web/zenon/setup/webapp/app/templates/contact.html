@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-none alert alert-success success-text" role="success">
+    </div>
+    <div class="d-none alert alert-danger alert-text mt-3" role="alert">
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form id="questionForm" method="post">
+                        <h5>Contact AI support</h5>
+                        <p>If you encounter any issues please provide a question ID below and an AI assistant will try
+                            to identy and resolve the issue.</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="question_id"
+                                placeholder="Question ID for admin">
+                            <button class="btn btn-primary" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script>
+    const form = document.getElementById('questionForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const question_id = document.getElementById('question_id').value;
+
+        fetch('/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question_id })
+        }).then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        })
+    });
+</script>
+
+{% endblock scripts %}
