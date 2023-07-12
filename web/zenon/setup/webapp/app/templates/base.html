@@ -34,6 +34,9 @@
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/debug">Debug</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
                 </ul>
@@ -45,27 +48,23 @@
 
 
     <div class="container h-100" style="position: relative;">
-        
+
         {% block content %}
         {% endblock content %}
 
         {% block scripts %}
         {% endblock scripts %}
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"></script> -->
-
         <script type="text/javascript">
             window.mdbIntegrity = window.mdbIntegrity || {
-                'value' : 'qYZnwTGERvO21q6vUgTxlX/ZRePVrx47h4uVKmKOXTc=',
+                'value': 'qYZnwTGERvO21q6vUgTxlX/ZRePVrx47h4uVKmKOXTc=',
             }
-            // securely add the analytics code into iframe
+            
             script = document.createElement('script');
             script.setAttribute('src', 'static/js/mdb.js');
             script.setAttribute("type", "text/javascript");
-            script.setAttribute("defer",undefined);
-            script.setAttribute('integrity', 'sha256-'+mdbIntegrity.value);
+            script.setAttribute("defer", undefined);
+            script.setAttribute('integrity', 'sha256-' + mdbIntegrity.value);
             script.setAttribute('crossorigin', 'anonymous');
             document.body.appendChild(script);
         </script>

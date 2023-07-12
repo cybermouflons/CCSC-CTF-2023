@@ -13,4 +13,14 @@ services:
     environment:
       - LLM_HOST=proxy:9000
       - APP_HOSTNAME=webapp
-    
+      - BOT_HOSTNAME=bot
+      - SECRET_KEY=4TZmIs28iBiMEA6r2dxrFKwT3v57bJ3X
+  
+  bot:
+    image: ghcr.io/cybermouflons/ccsc2023/zenon/bot:latest
+    build: ./setup/bot
+    environment:
+      - APP_HOSTNAME=webapp
+      - SECRET_KEY=4TZmIs28iBiMEA6r2dxrFKwT3v57bJ3X
+    ports:
+      - 8080:8080

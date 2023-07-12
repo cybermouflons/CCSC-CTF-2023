@@ -1,4 +1,6 @@
-import traceback, os
+import subprocess
+import httpx
+import traceback, os, requests
 
 from fastapi import Depends, FastAPI, Request, responses, status
 from fastapi.staticfiles import StaticFiles
@@ -21,7 +23,7 @@ from app.crud import (
 from app.database import get_db_session
 from app.deps import require_login
 from app.model import User
-from app.bot import visit_url_as_admin
+from app.config import settings
 from app.schema import QuestionInput, UserCreate, UserLogin, ContactSupport
 
 app = FastAPI()
@@ -33,7 +35,7 @@ SecWeb(
         "csp": {
             "script-src": [
                 "'sha256-sIM6dK+jF7/lZYL2oEOngswr7zuA4irYgg8reJoNjFE='",
-                "'sha256-ITEw0OWw59YW1LFRBzsdaDsRqC20e2lylGoWsiQuE/E='",
+                "'sha256-uNMmqQ1M01KkQtpGGxciZOld0wftI3twnMUUNjJhPJo='",
                 "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
                 "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
                 "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
@@ -55,7 +57,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 
 @cbv(router)
-class RegisterCBV:
+class UnathenticatedCBV:
     db_session: Session = Depends(get_db_session)
 
     @router.get("/register")
@@ -78,11 +80,6 @@ class RegisterCBV:
             "/login?success=Successfully%20Registered",
             status_code=status.HTTP_302_FOUND,
         )
-
-
-@cbv(router)
-class LoginCBV:
-    db_session: Session = Depends(get_db_session)
 
     @router.get("/login")
     async def login(self, request: Request):
@@ -109,20 +106,7 @@ class LoginCBV:
 
 
 @cbv(router)
-class LogoutCBV:
-    user: User = Depends(require_login)
-
-    @router.get("/logout")
-    async def logout(self, request: Request):
-        response = responses.RedirectResponse(
-            "/login", status_code=status.HTTP_301_MOVED_PERMANENTLY
-        )
-        response.delete_cookie("access_token")
-        return response
-
-
-@cbv(router)
-class HomeCBV:
+class AuthenticatedCBV:
     db_session: Session = Depends(get_db_session)
     user: User = Depends(require_login)
 
@@ -151,7 +135,7 @@ class HomeCBV:
             )
         try:
             bot_response = templates.env.from_string(response).render(
-                {"request": request}
+                {"request": request, "namespace": None}
             )
         except Exception as e:
             return responses.RedirectResponse(
@@ -169,11 +153,13 @@ class HomeCBV:
             "/question?id={0}".format(question.id), status_code=status.HTTP_302_FOUND
         )
 
-
-@cbv(router)
-class QuestionCBV:
-    db_session: Session = Depends(get_db_session)
-    user: User = Depends(require_login)
+    @router.get("/logout")
+    async def logout(self):
+        response = responses.RedirectResponse(
+            "/login", status_code=status.HTTP_301_MOVED_PERMANENTLY
+        )
+        response.delete_cookie("access_token")
+        return response
 
     @router.get("/question")
     async def question(self, request: Request, id: int):
@@ -186,12 +172,6 @@ class QuestionCBV:
         context = {"request": request, "user": self.user, "question": question}
         return templates.TemplateResponse("question.html", context)
 
-
-@cbv(router)
-class ContactCBV:
-    db_session: Session = Depends(get_db_session)
-    user: User = Depends(require_login)
-
     @router.get("/contact")
     async def contact(self, request: Request):
         context = {"request": request, "user": self.user}
@@ -199,8 +179,13 @@ class ContactCBV:
 
     @router.post("/contact")
     async def post_contact(self, request: Request, body: ContactSupport):
+        bot_url = (
+            f"http://{settings.BOT_HOSTNAME}:8080/visit_question?id={body.question_id}"
+        )
         try:
-            await visit_url_as_admin(body.question_id)
+            async with httpx.AsyncClient() as client:
+                response = await client.get(bot_url)
+                response.raise_for_status()
         except Exception as e:
             traceback.print_exc()
             return responses.RedirectResponse(
@@ -211,6 +196,11 @@ class ContactCBV:
             "/contact?success=Support request submitted!",
             status_code=status.HTTP_302_FOUND,
         )
+
+    @router.get("/debug")
+    async def debug(self, request: Request):
+        context = {"request": request, "user": self.user}
+        return templates.TemplateResponse("debug.html", context)
 
 
 app.include_router(router)

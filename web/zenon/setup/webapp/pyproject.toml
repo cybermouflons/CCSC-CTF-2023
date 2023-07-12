@@ -17,8 +17,8 @@ python-jose = "^3.3.0"
 secweb = "^1.7.2"
 requests = "^2.31.0"
 cffi = "^1.15.1"
-pytest-playwright = "^0.3.3"
 fastapi-simple-cachecontrol = "^0.1.0"
+httpx = "^0.24.1"
 
 
 [build-system]

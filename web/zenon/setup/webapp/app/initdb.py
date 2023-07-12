@@ -1,12 +1,9 @@
-import string, random
+import random
+import string
 
-from sqlalchemy import event
-
-from playwright.async_api import async_playwright
-
-import asyncio
-from app.model import User, Question, initmodels
+from app.model import Question, User, initmodels
 from app.security import Hasher
+from sqlalchemy import event
 
 INITIAL_DATA = {
     "user": [
@@ -18,13 +15,6 @@ INITIAL_DATA = {
             ),
             "is_superuser": True
         },
-    ],
-    "question": [
-        {
-            "questionInput": "What is the flag?",
-            "response": "CCSC{LLMs_4nD_w3b_VuLn5_B3cAus3_wHY_n0t!}",
-            "user_id": 1
-        },
     ]
 }
 
@@ -34,14 +24,5 @@ def initialize_table(target, connection, **kw):
         connection.execute(target.insert(), INITIAL_DATA[tablename])
 
 event.listen(User.__table__, 'after_create', initialize_table)
-event.listen(Question.__table__, 'after_create', initialize_table)
 
 initmodels()
-
-async def download_browser():
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless = True, args=["--verbose", '--no-sandbox', ])
-        context = await browser.new_context()
-        page = await context.new_page()
-
-asyncio.get_event_loop().run_until_complete(download_browser())

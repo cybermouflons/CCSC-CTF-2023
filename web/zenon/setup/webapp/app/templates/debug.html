@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="terminal">
+                <h4>>>>>> Headers</h4>
+                <pre">{{ request.headers }} </pre>
+                <h4>>>>>> Cookies</h4>
+                <pre >{{ request.cookies }} </pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script>
+    const form = document.getElementById('questionForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const questionInput = document.getElementById('questionInput').value;
+
+        fetch('/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ questionInput })
+        }).then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        })
+    });
+    
+</script>
+
+{% endblock scripts %}

@@ -2,3 +2,17 @@
 .minh-100 {
     min-height: 100%;
 }
+
+.terminal {
+    background-color: #000;
+    color: #0f0;
+    border-radius: 5px;
+    padding: 30px;
+    /* height: 300px; */
+    overflow: auto;
+  }
+
+.terminal pre {
+    text-wrap: wrap;
+}
+  
