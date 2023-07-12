@@ -23,33 +23,38 @@ from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
 from fastapi_simple_cachecontrol.types import CacheControl
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
-from Secweb.ContentSecurityPolicy.ContentSecurityPolicyMiddleware import ContentSecurityPolicy
+from Secweb.ContentSecurityPolicy.ContentSecurityPolicyMiddleware import (
+    ContentSecurityPolicy,
+)
 from sqlalchemy.orm import Session
 
 app = FastAPI()
 app.add_middleware(CacheControlMiddleware, cache_control=CacheControl("no-cache"))
 app.add_middleware(
+    ContentSecurityPolicy,
+    Option={
+        "script-src": [
+            "'sha256-sIM6dK+jF7/lZYL2oEOngswr7zuA4irYgg8reJoNjFE='",
+            "'sha256-uNMmqQ1M01KkQtpGGxciZOld0wftI3twnMUUNjJhPJo='",
+            "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
+            "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
+            "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
+            "'sha256-benVxoDCs3KPmGXX9xLXCYSag/kPSz/oOWqi3vrv6Dk='",
+            "'sha256-jLaI5TblrPhviwUk+NjPT8tIWBuypwNWoRB6YnocHEA='",
+            "'strict-dynamic'",
+            "'self'",
+        ],
+        "object-src": ["'none'"],
+    },
+)
+app.add_middleware(
     CORSMiddleware,
-    allow_origins=["challenges.cybermouflons.com"],
+    allow_origins=["http://webapp:8000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.add_middleware(ContentSecurityPolicy,Option={
-            "script-src": [
-                "'sha256-sIM6dK+jF7/lZYL2oEOngswr7zuA4irYgg8reJoNjFE='",
-                "'sha256-uNMmqQ1M01KkQtpGGxciZOld0wftI3twnMUUNjJhPJo='",
-                "'sha256-/fxhqi10H3qjNIbcNpaT/HjaReO2nXse/Laqp96ruKc='",
-                "'sha256-I4bmlu3wlaYirdQOyCWWo3hSvWvZAs3mWsm463/z9BE='",
-                "'sha256-pri1rF7hDOzcGsV1woopAll3nksNheoIKKUHLcw29X8='",
-                "'sha256-benVxoDCs3KPmGXX9xLXCYSag/kPSz/oOWqi3vrv6Dk='",
-                "'sha256-jLaI5TblrPhviwUk+NjPT8tIWBuypwNWoRB6YnocHEA='",
-                "'strict-dynamic'",
-                "'self'",
-            ],
-            "object-src": ["'none'"],
-        })
 
 router = InferringRouter()
 
