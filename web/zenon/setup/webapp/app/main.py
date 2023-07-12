@@ -23,7 +23,7 @@ from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
 from fastapi_simple_cachecontrol.types import CacheControl
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
-from Secweb import SecWeb
+from Secweb.ContentSecurityPolicy.ContentSecurityPolicyMiddleware import ContentSecurityPolicy
 from sqlalchemy.orm import Session
 
 app = FastAPI()
@@ -36,10 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-SecWeb(
-    app=app,
-    Option={
-        "csp": {
+app.add_middleware(ContentSecurityPolicy,Option={
             "script-src": [
                 "'sha256-sIM6dK+jF7/lZYL2oEOngswr7zuA4irYgg8reJoNjFE='",
                 "'sha256-uNMmqQ1M01KkQtpGGxciZOld0wftI3twnMUUNjJhPJo='",
@@ -52,9 +49,7 @@ SecWeb(
                 "'self'",
             ],
             "object-src": ["'none'"],
-        }
-    },
-)
+        })
 
 router = InferringRouter()
 
