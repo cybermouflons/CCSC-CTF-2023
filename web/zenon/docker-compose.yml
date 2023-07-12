@@ -22,5 +22,3 @@ services:
     environment:
       - APP_HOSTNAME=webapp
       - SECRET_KEY=4TZmIs28iBiMEA6r2dxrFKwT3v57bJ3X
-    ports:
-      - 8080:8080
