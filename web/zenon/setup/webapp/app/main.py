@@ -16,6 +16,7 @@ from app.model import User
 from app.schema import ContactSupport, QuestionInput, UserCreate, UserLogin
 from app.services import LLM
 from fastapi import Depends, FastAPI, Request, responses, status
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
@@ -27,6 +28,13 @@ from sqlalchemy.orm import Session
 
 app = FastAPI()
 app.add_middleware(CacheControlMiddleware, cache_control=CacheControl("no-cache"))
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["challenges.cybermouflons.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 SecWeb(
     app=app,
