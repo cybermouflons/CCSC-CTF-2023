@@ -1,9 +1,10 @@
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 from typing import Optional
+
+from app.config import settings
 from app.crud import get_user_by_username
 from app.database import SessionLocal
 from app.security import Hasher
-from app.config import settings
 from jose import jwt
 
 
@@ -14,6 +15,7 @@ def authenticate_user(username: str, password: str, db: SessionLocal):
     if not Hasher.verify_password(password, user.password):
         return False
     return user
+
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()

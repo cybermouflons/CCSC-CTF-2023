@@ -49,6 +49,6 @@ async def visit(id: int):
         url = f"http://{settings.APP_HOSTNAME}:8000/question?id={id}"
         print("Visiting ", url)
         await page.goto(url)
-        await page.content() # triggers javascript
+        await page.content()  # triggers javascript
 
     return {"status": "OK"}

@@ -1,11 +1,11 @@
 from typing import Optional
-from fastapi import Cookie, Depends, HTTPException, status
-from pydantic import ValidationError
+
+from app.config import settings
 from app.crud import get_user_by_username
 from app.database import get_db_session as _get_db_session
-from app.config import settings
-
+from fastapi import Cookie, Depends, HTTPException, status
 from jose import jwt
+from pydantic import ValidationError
 
 
 def require_token(access_token: Optional[str] = Cookie(None)):

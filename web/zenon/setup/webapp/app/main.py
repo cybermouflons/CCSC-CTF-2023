@@ -1,30 +1,29 @@
-import subprocess
+import os
+import traceback
+
 import httpx
-import traceback, os, requests
-
-from fastapi import Depends, FastAPI, Request, responses, status
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-from fastapi_utils.cbv import cbv
-from fastapi_utils.inferring_router import InferringRouter
-from sqlalchemy.orm import Session
-from Secweb import SecWeb
-from fastapi_simple_cachecontrol.types import CacheControl
-from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
-
-from app.services import LLM
 from app.auth import authenticate_user, create_access_token
+from app.config import settings
 from app.crud import (
     create_new_question,
     create_new_user,
-    get_user_by_username,
     get_question_by_id,
+    get_user_by_username,
 )
 from app.database import get_db_session
 from app.deps import require_login
 from app.model import User
-from app.config import settings
-from app.schema import QuestionInput, UserCreate, UserLogin, ContactSupport
+from app.schema import ContactSupport, QuestionInput, UserCreate, UserLogin
+from app.services import LLM
+from fastapi import Depends, FastAPI, Request, responses, status
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi_simple_cachecontrol.middleware import CacheControlMiddleware
+from fastapi_simple_cachecontrol.types import CacheControl
+from fastapi_utils.cbv import cbv
+from fastapi_utils.inferring_router import InferringRouter
+from Secweb import SecWeb
+from sqlalchemy.orm import Session
 
 app = FastAPI()
 app.add_middleware(CacheControlMiddleware, cache_control=CacheControl("no-cache"))
