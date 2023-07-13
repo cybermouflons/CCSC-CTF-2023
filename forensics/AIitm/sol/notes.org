@@ -1,0 +1,37 @@
+#+title AIitm Forensics CCSC 2023
+
+* DPAPI
+	
+** Creds / flag
+	Lazarus:Th1s_will_H3lp_You_Compl3te_My_MiSSion!!!
+    flag1:CCSC{RDP_DPAPI
+    pt2:_yes_we_use_
+    AnoterosMastros:these_IRL_Lazarus_pwned_M3_and_I_D3stroyed_them} 
+
+
+** Vault
+	Get-ChildItem C:\Users\Lazarus\AppData\Local\Microsoft\Vault\4BF4C442-9B8A-41A0-B380-DD4A704DDB28
+
+*** Decrypt Vault (needs masterkey first)
+		 dpapi::vault /cred:"C:\Users\Lazarus\AppData\Local\Microsoft\Vault\4BF4C442-9B8A-41A0-B380-DD4A704DDB28\D4EA33CBBED058EB6E4D3B7577CAAEA9693BD062.vcrd" /masterkey:f5971341f2b0bde693104e1a111de4dab349e956 /policy:C:\Users\Lazarus\AppData\Local\Microsoft\Vault\4BF4C442-9B8A-41A0-B380-DD4A704DDB28\Policy.vpol
+
+** Master Key
+	C:\Users\Lazarus\AppData\Roaming\Microsoft\Protect\S-1-5-21-1776675493-2386644239-2393728668-1002\5cda3b73-47cb-4c59-b3e1-b0f33dbfb635
+
+	
+*** Extract MasterKey with password
+	dpapi::masterkey /in:"C:\Users\Lazarus\AppData\Roaming\Microsoft\Protect\S-1-5-21-1776675493-2386644239-2393728668-1002\5cda3b73-47cb-4c59-b3e1-b0f33dbfb635" /sid:S-1-5-21-1776675493-2386644239-2393728668-1002 /password:Th1s_will_H3lp_You_Compl3te_My_MiSSion!!! /protected
+
+
+* Final Walkthrough
+  
+  1. Decrypt wireshsark pcap with ssl.log
+  2. Extract bytes, use pyrdp-convert to get replay and get 1st (video) and 2nd (clipboard) part of flag
+  3. Extract password from login info (the packets that contain the password for auth are deleted)
+  4. See that victim extracted AppData folder.
+  5. Use user password to extract Lazarus' masterkey and decrypt Vault creds to get 2nd part of flag.
+
+* Description
+  Lazarus, of the extinct Guild Of Pentesters, had managed to infiltrate the AI network and stash a vital secret deep within their network. However, just as Lazarus was about to make their escape, they realized they had fallen into an AI Honeypot: the AI had been actively monitoring their actions over the network. The evil machine was able to detect Lazarus, but as a last ditch attempt, they were able to retrieve a network capture from the AI's own honeypot and send it out to a Pulse distress point. 
+
+  Now, Ava and Lucas must analyze this capture and retrieve Lazarus' intel in order to cause a dent in the AI's defences.
