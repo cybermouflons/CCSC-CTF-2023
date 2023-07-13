@@ -191,7 +191,7 @@ class AuthenticatedCBV:
         )
         try:
             async with httpx.AsyncClient() as client:
-                response = await client.get(bot_url)
+                response = await client.get(bot_url, timeout=8)
                 response.raise_for_status()
         except Exception as e:
             traceback.print_exc()
