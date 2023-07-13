@@ -42,8 +42,14 @@ async def visit(id: int):
             "url": url,
             "name": "flag",
             "value": "CCSC{LLMs_4nD_w3b_VuLn5_B3cAus3_wHY_n0t!}",
+            "httpOnly": True,
         }
-        token_cookie = {"url": url, "name": "access_token", "value": access_token}
+        token_cookie = {
+            "url": url,
+            "name": "access_token",
+            "value": access_token,
+            "httpOnly": True,
+        }
         await context.add_cookies([flag_cookie, token_cookie])
         page = await context.new_page()
         url = f"http://{settings.APP_HOSTNAME}:8000/question?id={id}"
