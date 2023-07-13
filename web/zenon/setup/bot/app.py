@@ -50,6 +50,7 @@ async def visit(id: int):
         print("Visiting ", url)
         await page.goto(url)
         await page.content()  # triggers javascript
-
+        await page.wait_for_selector("#navbarNav")
+        print("Loaded")
 
     return {"status": "OK"}
