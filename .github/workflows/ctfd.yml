@@ -64,15 +64,15 @@ jobs:
       - name: Changed challenges list
         run: echo "${{ steps.modified-chalenges.outputs.dirs }}"
       
-      # - name: Challenge Sync
-      #   id: challenge-sync
-      #   run: |
-      #     IFS=' ' read -r -a chall_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
-      #       for dir in "${chall_dirs[@]}"; do
-      #           ctf challenge install ${dir}
-      #           ctf challenge sync ${dir}
-      #       done
-      #     echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
+      - name: Challenge Sync
+        id: challenge-sync
+        run: |
+          IFS=' ' read -r -a chall_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
+            for dir in "${chall_dirs[@]}"; do
+                ctf challenge install ${dir}
+                ctf challenge sync ${dir}
+            done
+          echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
       
       - name: Clear cache
         uses: actions/github-script@v6
