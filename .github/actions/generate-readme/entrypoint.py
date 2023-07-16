@@ -39,7 +39,7 @@ def main():
 
         chall_readme = challenge_readme_tmpl.render(challenge=challenge)
         with open(os.path.join(directory, "README.md"), "w") as f:
-            file.write(chall_readme)
+            f.write(chall_readme)
 
     readme_tmpl = env.get_template("README.jinja")
     output = readme_tmpl.render(challenge_categories=challenge_categories)
