@@ -1,0 +1,14 @@
+# AI in the Middle
+
+
+**Category**: forensics
+
+**Author**: s3nn
+
+## Description
+
+Lazarus, of the extinct Guild Of Pentesters, had managed to infiltrate the AI network and stash a vital secret deep within their network. However, just as Lazarus was about to make their escape, they realized they had fallen into an AI Honeypot: the AI had been actively monitoring their actions over the network. The evil machine was able to detect Lazarus, but as a last ditch attempt, they were able to retrieve a network capture from the AI's own honeypot and send it out to a Pulse distress point. 
+
+Now, Ava and Lucas must analyze this capture and retrieve Lazarus' intel in order to cause a dent in the AI's defences.
+
+Note: the pictures are purely for motivation, they don't have anything to do with the challenge. 

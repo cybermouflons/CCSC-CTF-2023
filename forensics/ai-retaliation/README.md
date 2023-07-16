@@ -1,0 +1,20 @@
+# AI Retaliation
+
+
+**Category**: forensics
+
+**Author**: R3D
+
+## Description
+
+Welcome, Lucas!
+
+A robot agent attempted to intercept and monitor communication within our highly secure mesh network. Our network was specifically designed to facilitate communication with our cutting-edge AI retaliation program, which is a crucial component of our defense infrastructure.
+
+Your mission is to carefully examine the pcap file and determine if any sensitive information has been leaked or compromised during the AI's interception attempt. The captured traffic consists of various protocols, creating a complex and diverse network landscape.
+
+The AI agents' motive remains unknown, and it is imperative that we identify any potential information leakage to ensure the integrity and security of our AI retaliation program. Be vigilant as you analyze the network traffic. The government agents might have used sophisticated techniques to obfuscate their actions and conceal any signs of compromise.
+
+Good luck, Lucas. The future of the resistance lies in your hands!
+
+https://drive.google.com/file/d/1g56Tr3J2rzwg1JwlMSxcqT-oxZDme9jI/view?usp=drive_link
