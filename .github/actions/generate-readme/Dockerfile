@@ -7,4 +7,4 @@ COPY entrypoint.py /entrypoint.py
 RUN pip install pyyaml
 
 # File to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.py"]
+ENTRYPOINT ["python", "/entrypoint.py"]
