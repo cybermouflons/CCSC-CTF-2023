@@ -25,6 +25,10 @@ def main():
     directories = sys.argv[1].split(" ")
     challenge_categories = {}
 
+    file_loader = FileSystemLoader("/")
+    env = Environment(loader=file_loader)
+    challenge_readme_tmpl = env.get_template("challenge_README.jinja")
+
     for directory in directories:
         challenge = parse_challenge(directory)
         category = challenge["category"]
@@ -33,11 +37,12 @@ def main():
             challenge_categories[category] = []
         challenge_categories[category].append(challenge)
 
-    file_loader = FileSystemLoader("/")
-    env = Environment(loader=file_loader)
-    template = env.get_template("README.jinja")
+        chall_readme = challenge_readme_tmpl.render(challenge=challenge)
+        with open(os.path.join(directory, "README.md"), "r") as f:
+            file.write(chall_readme)
 
-    output = template.render(challenge_categories=challenge_categories)
+    readme_tmpl = env.get_template("README.jinja")
+    output = readme_tmpl.render(challenge_categories=challenge_categories)
 
     with open("README.md", "w") as file:
         file.write(output)

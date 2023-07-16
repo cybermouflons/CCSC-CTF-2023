@@ -1,8 +1,9 @@
 FROM python:3.8-slim-buster
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.py /entrypoint.py
 COPY README.jinja /README.jinja
+COPY challenge_README.jinja /challenge_README.jinja
+
 # Python dependencies
 RUN pip install pyyaml jinja2
 
