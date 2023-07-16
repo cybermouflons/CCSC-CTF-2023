@@ -17,6 +17,6 @@ jobs:
       
       - name: Generate README.md 
         id: generate-readme
-        uses: ./.github/actions/discover-challenges
+        uses: ./.github/actions/generate-readme
         with:
           directories: "${{ steps.challenge-discovery.outputs.dirs }}"
