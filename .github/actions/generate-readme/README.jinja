@@ -12,9 +12,13 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 ## Challenges
 
-### Crypto
+{% for category, challenges in challenge_categories.items() %}
+### {{ category }}
 
-| Name                                                             | Author    | Ports |
-{% for challenge in challenges if "crypto" in challenge["tags"] %}
+| Name | Author |
+| ---- | ------ |
+{% for challenge in challenges %}
+| [{{ challenge.name }}]({{ category }}/{{ challenge.name }}) | {{ challenge.author }} |
+{% endfor %}
 
 {% endfor %}
