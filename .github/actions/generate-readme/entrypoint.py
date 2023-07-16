@@ -2,6 +2,7 @@ import os
 import yaml
 import sys
 from jinja2 import Environment, FileSystemLoader
+from urllib.parse import urljoin
 
 
 class IgnoreSpecificConstructorLoader(yaml.SafeLoader):
@@ -33,6 +34,7 @@ def main():
         challenge = parse_challenge(directory)
         category = challenge["category"]
         challenge["dir"] = directory
+        challenge["docker_compose_url"] = urljoin("https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/", f"{directory}/docker-compose.yml")
         if category not in challenge_categories:
             challenge_categories[category] = []
         challenge_categories[category].append(challenge)
