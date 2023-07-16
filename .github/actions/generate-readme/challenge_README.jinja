@@ -10,3 +10,17 @@
 ## Description
 
 {{ challenge.description }}
+
+{% if challenge.type == "dynamic_docker" %}
+## Run locally
+
+Launch challenge:
+```
+curl -sSL {{ challenge.docker_compose_url }} | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL {{ challenge.docker_compose_url }} | docker compose -f - down
+```
+{% endif %}
