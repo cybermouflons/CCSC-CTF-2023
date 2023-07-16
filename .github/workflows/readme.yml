@@ -3,8 +3,20 @@ name: Generate README files
 on: [workflow_call]  # allow this workflow to be called from other workflows
 
 jobs:
-  sync:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      - name: Challenge discovery
+        id: challenge-discovery
+        uses: ./.github/actions/discover-challenges
+        with:
+          base-dir: '.'
+      
+      - name: Generate README.md 
+        id: generate-readme
+        uses: ./.github/actions/discover-challenges
+        with:
+          directories: "${{ steps.challenge-discovery.outputs.dirs }}"

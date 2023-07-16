@@ -10,7 +10,8 @@ def generate_challenge_list(directory):
     return challenge_table
 
 def main():
-    directories = sys.argv[1].split(',')
+    directories = sys.argv[1:]
+    print("Directories:", directories)
 
     challenge_categories = {}
     for directory in directories:
