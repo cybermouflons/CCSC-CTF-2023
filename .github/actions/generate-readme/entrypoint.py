@@ -31,6 +31,7 @@ def main():
         if category not in challenge_categories:
             challenge_categories[category] = []
         challenge_categories[category].append(challenge)
+    print(challenge_categories)
 
     file_loader = FileSystemLoader("/")
     env = Environment(loader=file_loader)
@@ -40,6 +41,8 @@ def main():
 
     with open("README.md", "w") as file:
         file.write(output)
+    
+    print(output)
 
 
 if __name__ == "__main__":
