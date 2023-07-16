@@ -20,3 +20,14 @@ jobs:
         uses: ./.github/actions/generate-readme
         with:
           directories: "${{ steps.challenge-discovery.outputs.dirs }}"
+      
+      - name: Sense check
+        run: cat README.md
+      
+      # - name: Commit and push if it's not a pull request
+      #   if: github.event_name == 'push' && github.repository == github.event.repository.full_name
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git add README.md
+      #     git diff --quiet && git diff --staged --quiet || (echo 'Committing changes...' && git commit -m "[GitHub Action] Update challenges in README.md" && git push)
