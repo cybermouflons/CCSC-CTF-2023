@@ -10,7 +10,7 @@ class IgnoreSpecificConstructorLoader(yaml.SafeLoader):
 
 
 IgnoreSpecificConstructorLoader.add_constructor(
-    "!file_contents", IgnoreSpecificConstructorLoader.ignore_constructor
+    "!filecontents", IgnoreSpecificConstructorLoader.ignore_constructor
 )
 
 
