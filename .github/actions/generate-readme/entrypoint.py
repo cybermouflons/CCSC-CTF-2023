@@ -28,6 +28,7 @@ def main():
     for directory in directories:
         challenge = parse_challenge(directory)
         category = challenge["category"]
+        challenge["dir"] = directory
         if category not in challenge_categories:
             challenge_categories[category] = []
         challenge_categories[category].append(challenge)

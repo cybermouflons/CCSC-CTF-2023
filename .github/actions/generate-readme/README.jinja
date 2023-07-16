@@ -17,6 +17,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
-{% for challenge in challenges %}| [{{ challenge.name }}]({{ category }}/{{ challenge.name }}) | {{ challenge.author }} |{% endfor %}
+{% for challenge in challenges %}| [{{ challenge.name }}]({{ challenge.dir }}) | {{ challenge.author }} |
+{% endfor %}
 
 {% endfor %}
