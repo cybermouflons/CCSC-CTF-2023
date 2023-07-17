@@ -12,3 +12,5 @@ Lazarus, of the extinct Guild Of Pentesters, had managed to infiltrate the AI ne
 Now, Ava and Lucas must analyze this capture and retrieve Lazarus' intel in order to cause a dent in the AI's defences.
 
 Note: the pictures are purely for motivation, they don't have anything to do with the challenge. 
+
+

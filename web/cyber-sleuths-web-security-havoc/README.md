@@ -13,3 +13,17 @@ We are organizing a group of cyber sleuths to carry out top secret missions.
 Apparently there is a flag on the root `/` path of this server, but no one has ever managed to read it. 
 Fetch it for us and consider yourself part of the team. 
 Good luck rookie.
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/cyber-sleuths-web-security-havoc/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/cyber-sleuths-web-security-havoc/docker-compose.yml | docker compose -f - down
+```

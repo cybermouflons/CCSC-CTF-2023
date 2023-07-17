@@ -10,3 +10,17 @@
 ## Description
 
 Defences have been hardened, but the AI has made one fatal mistake. Now's your chance, help the Pulse destroy all its defences!
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/babyrop/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/babyrop/docker-compose.yml | docker compose -f - down
+```

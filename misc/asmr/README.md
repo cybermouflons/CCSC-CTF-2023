@@ -10,3 +10,17 @@
 ## Description
 
 Did you know robots love to whisper? ASMr your way to the flag!
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/misc/asmr/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/misc/asmr/docker-compose.yml | docker compose -f - down
+```

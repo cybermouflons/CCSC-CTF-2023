@@ -19,3 +19,17 @@ an online timer that utilizes the generated ECDSA implementation to sign its res
 Feeling a bit too confident, I went ahead and added a flag command, which returns
 the flag if provided with a valid signature. I'm willing to bet you won't be able to
 obtain the flag... or perhaps you can?
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/secure-timer/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/secure-timer/docker-compose.yml | docker compose -f - down
+```

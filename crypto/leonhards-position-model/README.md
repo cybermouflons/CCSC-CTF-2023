@@ -11,3 +11,5 @@ We found this pdf in the drive of Leonhard, a dead autonomus vehicle. We believe
 
 https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/-/raw/master/vehicleModels_commonRoad.pdf
 (NOTE: only chapter 5 is relevant in the pdf)
+
+

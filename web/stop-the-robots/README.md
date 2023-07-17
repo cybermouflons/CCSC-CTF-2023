@@ -10,3 +10,17 @@
 ## Description
 
 Where do humans go to hide from robots?
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/stop-the-robots/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/stop-the-robots/docker-compose.yml | docker compose -f - down
+```

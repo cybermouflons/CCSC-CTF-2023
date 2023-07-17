@@ -10,3 +10,17 @@
 ## Description
 
 The evil AI hasn't been fully trained yet, this is the Pulse's chance to get a foothold in the core network. It won't be as easy as Aleph One in 1996, but you can do it!
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/stack-smashing-2023/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/stack-smashing-2023/docker-compose.yml | docker compose -f - down
+```

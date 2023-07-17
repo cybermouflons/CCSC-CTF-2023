@@ -12,3 +12,17 @@
 This is an old API for a classroom application that is no longer used due to the AI takeover.
 Inside information states the API is still available and is connected to the AIs internal infrastructure.
 Can you can hack it and read any hidden secrets on the root `/` path of the server?
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/forgotten-classes/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/forgotten-classes/docker-compose.yml | docker compose -f - down
+```

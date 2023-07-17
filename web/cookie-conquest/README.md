@@ -12,3 +12,17 @@
 Help Lucas access the admin portal! 
 
 Apparently robots cant eat them!
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/cookie-conquest/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/cookie-conquest/docker-compose.yml | docker compose -f - down
+```

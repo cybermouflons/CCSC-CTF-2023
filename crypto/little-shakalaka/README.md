@@ -12,3 +12,17 @@
 In the realm of AI, my little brother Shakalaka embarked on a wondrous
 exploration. With hopeful eyes, he dreamt of a remote authenticated storage,
 a gift beyond his wildest imagination.
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/little-shakalaka/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/little-shakalaka/docker-compose.yml | docker compose -f - down
+```

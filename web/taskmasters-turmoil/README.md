@@ -12,3 +12,17 @@
 Your mission is to exploit vulnerabilities in this web application.
 
 You are to override existing security measures and halt the AI's entire operation by reading contents of `/flag.txt`. 
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/taskmasters-turmoil/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/taskmasters-turmoil/docker-compose.yml | docker compose -f - down
+```

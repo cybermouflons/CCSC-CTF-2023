@@ -10,3 +10,17 @@
 ## Description
 
 Find the flag.
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/reverse/intellectual-conflict/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/reverse/intellectual-conflict/docker-compose.yml | docker compose -f - down
+```

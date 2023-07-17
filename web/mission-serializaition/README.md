@@ -10,3 +10,17 @@
 ## Description
 
 Ava needs to undertake a solo mission to help the Pulse weaken the AI's defences. 
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/mission-serializaition/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/mission-serializaition/docker-compose.yml | docker compose -f - down
+```

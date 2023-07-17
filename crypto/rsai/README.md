@@ -21,3 +21,17 @@ fervor, to disseminate the flag in an encrypted form.
 However, our solace lies in the knowledge that our security remains intact, as
 the private key continues to stand as an indomitable fortress, rendering its
 computational derivation a formidable endeavor.
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/rsai/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/rsai/docker-compose.yml | docker compose -f - down
+```

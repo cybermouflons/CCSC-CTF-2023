@@ -12,3 +12,17 @@
 Our state-of-the-art Recipes Generative Model has produced an exceptional pizza dough recipe, aptly named the "(Un)predictable Dough".
 
 Order one for an (un)predictable taste journey.
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/ai-pizza/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/crypto/ai-pizza/docker-compose.yml | docker compose -f - down
+```

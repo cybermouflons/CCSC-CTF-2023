@@ -10,3 +10,17 @@
 ## Description
 
 A brave, unnamed reconnoiterer has discovered an endpoint that interfaces with the AI's core. This could be the Pulse's chance to exterminate the machine vermin once and for all. 
+
+
+
+## Run locally
+
+Launch challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/attack-the-core/docker-compose.yml | docker compose -f - up -d
+```
+
+Shutdown challenge:
+```
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/attack-the-core/docker-compose.yml | docker compose -f - down
+```
